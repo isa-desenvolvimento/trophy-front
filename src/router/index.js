@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import  VueRouter from "vue-router";
+import Vue from "vue";
+import VueRouter from "vue-router";
 
 import Home from "../components/Home.vue";
 import Signup from "../components/Signup.vue";
@@ -7,7 +7,7 @@ import Login from "../components/Login.vue";
 import ForgotPassword from "../components/ForgotPassword.vue";
 import Form from "../components/Form.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -38,10 +38,9 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
-
+  routes,
+});
 
 export default router;
