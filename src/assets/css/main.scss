@@ -17,8 +17,8 @@ $marioWidth: 30px; $marioHeight: 54px;
 //   background-color: #000000;
 //   -webkit-font-smoothing: antialiased;
 // }
-#app {
-  height: calc(50em - 10px);
+body {
+  height: 52em;
   background-image:
     url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/mario.gif?raw=true'),
     url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/ground.png?raw=true'),
