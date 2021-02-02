@@ -1,24 +1,32 @@
 <template>
-  <div class="vue-tempalte">
-    <form @submit.prevent="forgetPassword">
-      <h3>Forgot Password</h3>
+  <div class="container-2">
+    <card>
+      <form @submit.prevent="forgetPassword" class="sign-up forgot-password">
+        <h3>Forgot Password</h3>
 
-      <div class="form-group">
-        <label>Email</label>
-        <input id="inp-forgetPassword-email" v-model="user.email" />
-      </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            id="inp-forgetPassword-email"
+            v-model="user.email"
+            class="form-control input"
+          />
+        </div>
 
-      <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Reset password
-      </button>
-    </form>
+        <button type="submit" class="btn btn-success btn-lg btn-block">
+          Reset password
+        </button>
+      </form>
+    </card>
   </div>
 </template>
 
 <script>
 import firebase from "firebase";
+import Card from "@/components/Card.vue";
 
 export default {
+  components: { Card },
   data() {
     return {
       user: {
