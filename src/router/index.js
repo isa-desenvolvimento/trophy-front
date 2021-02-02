@@ -1,11 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Home from "../components/Home.vue";
-import Signup from "../components/Signup.vue";
-import Login from "../components/Login.vue";
-import ForgotPassword from "../components/ForgotPassword.vue";
-import Form from "../components/Form.vue";
+import Home from "@/views/Home.vue";
+import Signup from "@/views/Signup.vue";
+import Login from "@/views/Login.vue";
+import ForgotPassword from "@/views/ForgotPassword.vue";
 
 Vue.use(VueRouter);
 
@@ -29,11 +28,6 @@ const routes = [
     path: "/home",
     name: "home",
     component: Home,
-  },
-  {
-    path: "/form",
-    name: "form-v",
-    component: Form,
   },
 ];
 
