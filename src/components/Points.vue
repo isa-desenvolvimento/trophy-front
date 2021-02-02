@@ -25,6 +25,5 @@
 <script>
 export default {
   props: ["coins", "killed", "died"],
-  data() {},
 };
 </script>

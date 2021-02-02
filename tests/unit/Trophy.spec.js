@@ -25,12 +25,4 @@ describe("Trophy", () => {
     expect(points.exists()).toBeTruthy();
     expect(avatar.exists()).toBeTruthy();
   });
-
-  // it("should verify the action", async () => {
-  //   const wrapper = shallowMount(Trophy);
-  //   const button = wrapper.find("button");
-  //   await button.trigger("click");
-
-  //   expect(button.trigger("click")).toBeTruthy();
-  // });
 });

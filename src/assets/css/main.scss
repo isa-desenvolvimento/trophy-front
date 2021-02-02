@@ -19,6 +19,7 @@ $marioWidth: 30px; $marioHeight: 54px;
 // }
 body {
   height: 52em;
+  text-align: center;
   background-image:
     url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/mario.gif?raw=true'),
     url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/ground.png?raw=true'),
@@ -282,4 +283,17 @@ body {
 .trophy-page {
   height: 340px;
   margin-bottom: 40px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
