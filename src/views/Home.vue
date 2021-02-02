@@ -1,32 +1,34 @@
 <template>
-  <div id="app" class="container-2">
+  <div class="container-2 trophy-page">
     <card>
-      <div class="text-center">
-        <avatar />
-      </div>
-      <h1>MARIO</h1>
-      <trophy :coins="3000" :died="100" :killed="1000" />
-
-      <hr class="my-4 line" />
-      <div class="container container-row">
-        <div class="row">
-          <div class="col-4">
-            <font-awesome-icon icon="circle-notch" class="icon-coins icons" />
-          </div>
-          <div class="col-4">
-            <font-awesome-icon
-              icon="pastafarianism"
-              class="icon-pastafarianism icons"
-            />
-          </div>
-          <div class="col-4">
-            <font-awesome-icon icon="heart-broken" class="icon-heart icons" />
-          </div>
+      <div class="trophy-page">
+        <div class="text-center">
+          <avatar />
         </div>
-        <div class="row">
-          <div class="col-4">100000</div>
-          <div class="col-4">100000</div>
-          <div class="col-4">100000</div>
+        <h1>Mario</h1>
+        <trophy :coins="3000" :died="100" :killed="1000" />
+
+        <hr class="my-4 line" />
+        <div class="container container-row">
+          <div class="row">
+            <div class="col-4">
+              <font-awesome-icon icon="circle-notch" class="icon-coins icons" />
+            </div>
+            <div class="col-4">
+              <font-awesome-icon
+                icon="pastafarianism"
+                class="icon-pastafarianism icons"
+              />
+            </div>
+            <div class="col-4">
+              <font-awesome-icon icon="heart-broken" class="icon-heart icons" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">100000</div>
+            <div class="col-4">100000</div>
+            <div class="col-4">100000</div>
+          </div>
         </div>
       </div>
     </card>
@@ -52,6 +54,7 @@ export default {
       user: {
         displayName: "",
         email: "",
+        name: "Mario",
       },
     };
   },
