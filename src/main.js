@@ -2,10 +2,17 @@ import Vue from "vue";
 import App from "./App.vue";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faUserSecret, faTrophy } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUserSecret,
+  faTrophy,
+  faCircleNotch,
+  faPastafarianism,
+  faHeartBroken,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import store from "./store";
-
+import axios from "axios";
+import VueAxios from "vue-axios";
 import firebase from "firebase/app";
 import router from "./router";
 import FlowForm from "@ditdot-dev/vue-flow-form";
@@ -24,7 +31,13 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-library.add([faUserSecret, faTrophy]);
+library.add([
+  faUserSecret,
+  faTrophy,
+  faCircleNotch,
+  faPastafarianism,
+  faHeartBroken,
+]);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
@@ -34,5 +47,7 @@ new Vue({
   BootstrapVue,
   IconsPlugin,
   FlowForm,
+  axios,
+  VueAxios,
   render: (h) => h(App),
 }).$mount("#app");
