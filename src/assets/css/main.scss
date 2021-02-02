@@ -1,15 +1,66 @@
+
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+
 $hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
 $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$backWidth: 512px; $backHeight: 432px;
+$bushesWidth: 508px; $bushesHeight: 79px;
+$groundWidth: 68px; $groundHeight: 22px;
+$marioWidth: 30px; $marioHeight: 54px;
 
+// body {
+//   margin: 40px 0;
+//   font-family: "Raleway";
+//   font-size: 14px;
+//   font-weight: 500;
+//   background-color: #000000;
+//   -webkit-font-smoothing: antialiased;
+// }
 body {
-  margin: 40px 0;
-  font-family: "Raleway";
-  font-size: 14px;
-  font-weight: 500;
-  background-color: #000000;
-  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  background-image:
+    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/mario.gif?raw=true'),
+    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/ground.png?raw=true'),
+    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/bushes.png?raw=true'),
+    url('https://raw.githubusercontent.com/Kageetai/mario-background-parallax/master/img/back.png?raw=true');
+  background-color: #F8E0B0;
+  background-repeat:
+    no-repeat,
+    repeat-x,
+    repeat-x,
+    repeat-x;
+  background-position:
+    left 30% bottom $groundHeight,
+    left 0px bottom 0px,
+    left 0px bottom $groundHeight,
+    left 0px bottom 0px;
+  animation: back 15s infinite linear;
 }
 
+@keyframes back {
+  0% {
+    background-position:
+      left 30% bottom $groundHeight,
+      left 0px bottom 0px,
+      left 0px bottom $groundHeight,
+      left 0px bottom 0px;
+  }
+  50% {
+    background-position:
+      left 50% bottom $groundHeight,
+      left (-($groundWidth * 12)) bottom 0px,
+      left (-($bushesWidth * 1)) bottom $groundHeight,
+      left (-($backWidth / 2)) bottom 0px;
+  }
+  100% {
+    background-position:
+      left 30% bottom $groundHeight,
+      left (-($groundWidth * 24)) bottom 0px,
+      left (-($bushesWidth * 2)) bottom $groundHeight,
+      left (-$backWidth) bottom 0px;
+  }
+}
 .title {
   font-family: "Raleway";
   font-size: 24px;
@@ -26,11 +77,30 @@ h1+p, p+p {
   margin-top: 10px;
 }
 
-.container {
+.container-2 {
   padding: 40px 80px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  font-size: 0.5em;
+
+  .container-row {
+    margin-top: 10px;
+  }
+
+  .line {
+    background-color: #37c800;
+  }
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 4rem !important;
+  box-shadow:
+  rgba(black, 0.70) 2px 2px 20px 0,
+  inset #37c8004d 0 0 0 5px,
+  inset rgba(white, 0.5) 0 0 0 6px;
 }
 
 .card-wrap {
@@ -53,7 +123,7 @@ h1+p, p+p {
     .card-info:after {
       transition: 5s $hoverEasing;
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(35%);
     }
     .card-bg {
       transition: 
@@ -69,23 +139,24 @@ h1+p, p+p {
         rgba(white, 0.2) 0 0 40px 5px,
         rgba(white, 1) 0 0 0 1px,
         rgba(black, 0.66) 0 30px 60px 0,
-        inset #333 0 0 0 5px,
+        inset #37c800 0 0 0 5px,
         inset white 0 0 0 6px;
     }
   }
 }
 
 .card {
+  margin-bottom: 100px;
   position: relative;
   flex: 0 0 240px;
   width: 240px;
-  height: 320px;
-  background-color: #333;
+  height: 220px;
+  background-color: #f8e0b040;
   overflow: hidden;
   border-radius: 10px;
   box-shadow:
     rgba(black, 0.66) 0 30px 60px 0,
-    inset #333 0 0 0 5px,
+    inset #37c800 0 0 0 5px,
     inset rgba(white, 0.5) 0 0 0 6px;
   transition: 1s $returnEasing;
 }
@@ -108,10 +179,10 @@ h1+p, p+p {
 
 .card-info {
   padding: 20px;
-  position: absolute;
+  //position: absolute;
   bottom: 0;
   color: #fff;
-  transform: translateY(40%);
+  transform: translateY(10%);
   transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
   
   p {
@@ -132,10 +203,10 @@ h1+p, p+p {
     z-index: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to bottom, transparent 0%, rgba(#000, 0.6) 100%);
+    background-image: linear-gradient(to bottom, transparent 0%, rgba(#488f70, 0.6) 100%);
     background-blend-mode: overlay;
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(35%);
     transition: 5s 1s $returnEasing;
   }
 }
@@ -146,3 +217,4 @@ h1+p, p+p {
   font-weight: 700;
   text-shadow: rgba(black, 0.5) 0 10px 10px;
 }
+

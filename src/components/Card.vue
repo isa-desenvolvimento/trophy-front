@@ -9,8 +9,7 @@
     <div class="card" :style="cardStyle">
       <div class="card-bg" :style="[cardBgTransform, cardBgImage]"></div>
       <div class="card-info">
-        <h1>Canyons</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <slot> </slot>
       </div>
     </div>
   </div>

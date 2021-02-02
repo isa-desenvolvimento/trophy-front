@@ -7,7 +7,6 @@ import router from "./router";
 import FlowForm from "@ditdot-dev/vue-flow-form";
 Vue.config.productionTip = false;
 
-
 import "@/assets/css/main.scss";
 
 const firebaseConfig = {

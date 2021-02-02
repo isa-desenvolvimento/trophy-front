@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import  VueRouter from "vue-router";
 
 import Home from "../components/Home.vue";
@@ -5,6 +6,8 @@ import Signup from "../components/Signup.vue";
 import Login from "../components/Login.vue";
 import ForgotPassword from "../components/ForgotPassword.vue";
 import Form from "../components/Form.vue";
+
+Vue.use(VueRouter)
 
 const routes = [
   {
@@ -35,8 +38,10 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  routes,
-});
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
+})
 
 
 export default router;

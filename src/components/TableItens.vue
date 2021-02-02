@@ -1,5 +1,6 @@
 <template>
   <div>
+    hkahkuhfkahfk
     <b-table
       :striped="striped"
       :bordered="bordered"
