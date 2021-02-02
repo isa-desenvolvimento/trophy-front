@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Home from "@/views/Home.vue";
+import Trophy from "@/views/Trophy.vue";
 import Signup from "@/views/Signup.vue";
 import Login from "@/views/Login.vue";
 import ForgotPassword from "@/views/ForgotPassword.vue";
@@ -25,9 +25,9 @@ const routes = [
     component: ForgotPassword,
   },
   {
-    path: "/home",
-    name: "home",
-    component: Home,
+    path: "/trophy",
+    name: "trophy",
+    component: Trophy,
   },
 ];
 

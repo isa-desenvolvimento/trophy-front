@@ -121,8 +121,8 @@ body {
   }
 }
 .avatar {
-  width: 80px;
-  height: 80px;
+  width: 85px;
+  height: 85px;
   border-radius: 4rem !important;
   box-shadow:
   rgba(black, 0.70) 2px 2px 20px 0,
@@ -235,15 +235,14 @@ body {
 }
 
 .icon-trophy{
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .icons {
-  font-size: 10px;
+  font-size: 16px;
 }
 
 .icon-coins {
-  font-size: 10px;
   color: yellow
 }
 
@@ -252,6 +251,11 @@ body {
 }
 
 .icon-heart {
+  color: red
+}
+
+.icon-logout {
+  font-size: 14px;
   color: red
 }
 

@@ -3,33 +3,13 @@
     <card>
       <div class="trophy-page">
         <div class="text-center">
-          <avatar />
+          <avatar id="avatar" />
         </div>
-        <h1>Mario</h1>
-        <trophy :coins="3000" :died="100" :killed="1000" />
+        <h1 id="name-user">Mario</h1>
+        <trophies :coins="3000" :died="100" :killed="1000" id="trophies" />
 
         <hr class="my-4 line" />
-        <div class="container container-row">
-          <div class="row">
-            <div class="col-4">
-              <font-awesome-icon icon="circle-notch" class="icon-coins icons" />
-            </div>
-            <div class="col-4">
-              <font-awesome-icon
-                icon="pastafarianism"
-                class="icon-pastafarianism icons"
-              />
-            </div>
-            <div class="col-4">
-              <font-awesome-icon icon="heart-broken" class="icon-heart icons" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-4">100000</div>
-            <div class="col-4">100000</div>
-            <div class="col-4">100000</div>
-          </div>
-        </div>
+        <points :coins="3000" :died="100" :killed="1000" id="points" />
       </div>
     </card>
   </div>
@@ -40,7 +20,8 @@ import axios from "axios";
 import firebase from "firebase";
 import Card from "@/components/Card.vue";
 import Avatar from "@/components/Avatar.vue";
-import Trophy from "@/components/Trophy.vue";
+import Trophies from "../components/Trophies.vue";
+import Points from "../components/Points.vue";
 
 export default {
   computed: {
@@ -48,7 +29,7 @@ export default {
       return this.$route.params.username;
     },
   },
-  components: { Card, Avatar, Trophy },
+  components: { Card, Avatar, Trophies, Points },
   data() {
     return {
       user: {

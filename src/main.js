@@ -8,6 +8,7 @@ import {
   faCircleNotch,
   faPastafarianism,
   faHeartBroken,
+  faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import store from "./store";
@@ -37,6 +38,7 @@ library.add([
   faCircleNotch,
   faPastafarianism,
   faHeartBroken,
+  faSignOutAlt,
 ]);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
