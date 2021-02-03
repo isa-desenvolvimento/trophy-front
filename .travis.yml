@@ -9,9 +9,10 @@ cache:
   directories:
     - node_modules
 script:
-  - yarn install
+  - yarn install --production
   - yarn test:unit
   - yarn run build
+  - yarn start
 deploy:
   provider: pages
   local-dir: dist/
