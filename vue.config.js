@@ -6,4 +6,5 @@ module.exports = {
       errors: true,
     },
   },
+  publicPath: process.env.NODE_ENV === "production" ? "/trophy-front/" : "/",
 };
