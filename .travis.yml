@@ -4,7 +4,6 @@ node_js:
 install:
   - yarn install
 script:
-  # test
   - yarn test:unit 
   - yarn run build
 deploy:
