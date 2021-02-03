@@ -8,7 +8,7 @@ before_script:
 script:
   # test
   - yarn test:unit 
-  - yarn build
+  - yarn run build
 deploy:
   provider: pages
   local-dir: demo/dist/
