@@ -11,8 +11,7 @@ script:
   - yarn run build
 deploy:
   provider: pages
-  local-dir: demo/dist/
-  skip-cleanup: true
+  local-dir: dist/
   github-token: 'bc773e539e2bc5eb9a228882aa32b7baf3a538ab'  
   keep-history: false
   on:
