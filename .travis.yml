@@ -6,7 +6,10 @@ before_script:
   - yarn global add vue-cli
   - sudo apt-get install expect
 script:
-  - ./deploy.sh
+  # test
+  - yarn test:unit
+  # build
+  - yarn run build
 deploy:
   provider: pages
   local-dir: demo/dist/
