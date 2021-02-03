@@ -12,7 +12,6 @@ script:
   - yarn install
   - yarn test:unit
   - yarn run build
-install: travis_wait 30 mvn install
 deploy:
   provider: pages
   local-dir: dist/
@@ -20,5 +19,3 @@ deploy:
   keep-history: false
   on:
     branch: master
-  target-branch: gh-pages
-  committer-from-gh: true
