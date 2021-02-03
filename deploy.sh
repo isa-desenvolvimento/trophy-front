@@ -3,8 +3,11 @@
 # abort on errors
 set -e
 
+# test
+yarn test:unit
+
 # build
-npm run build
+yarn run build
 
 # navigate into the build output directory
 cd dist
