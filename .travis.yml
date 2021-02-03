@@ -9,7 +9,7 @@ script:
   # test
   - yarn test:unit
   # build
-  - yarn run build
+  - yarn build
 deploy:
   provider: pages
   local-dir: demo/dist/
