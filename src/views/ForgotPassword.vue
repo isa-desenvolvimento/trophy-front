@@ -1,8 +1,11 @@
 <template>
   <div class="container-2">
     <card>
-      <form @submit.prevent="forgetPassword" class="sign-up forgot-password">
-        <h3>Forgot Password</h3>
+      <form
+        @submit.prevent="forgetPassword"
+        class="sign-up forgot-password neon-container"
+      >
+        <h3 id="title-forgot-password">Forgot Password</h3>
 
         <div class="form-group">
           <label>Email</label>
@@ -24,9 +27,13 @@
 <script>
 import firebase from "firebase";
 import Card from "@/components/Card.vue";
+import { generateNeon } from "@/util/neon";
 
 export default {
   components: { Card },
+  mounted() {
+    generateNeon("title-forgot-password");
+  },
   data() {
     return {
       user: {

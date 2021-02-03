@@ -1,12 +1,14 @@
-import { shallowMount } from "@vue/test-utils";
+import { shallowMount, createLocalVue } from "@vue/test-utils";
+const localVue = createLocalVue();
+localVue.component("font-awesome-icon", FontAwesomeIcon);
 import Points from "@/components/Points.vue";
-
-jest.mock("@fortawesome/fontawesome-svg-core", () => "");
-jest.mock("@fortawesome/free-solid-svg-icons", () => "<div></div>");
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 describe("Points", () => {
   it("should render the componenet Points", () => {
-    const wrapper = shallowMount(Points);
+    const wrapper = shallowMount(Points, {
+      localVue,
+    });
 
     expect(wrapper.find("#points-coins").exists()).toBeTruthy();
     expect(wrapper.find("#points-killed").exists()).toBeTruthy();

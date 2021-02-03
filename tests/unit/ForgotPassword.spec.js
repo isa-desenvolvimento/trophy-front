@@ -15,7 +15,9 @@ jest.spyOn(firebase, "auth").mockImplementation(() => {
 
 describe("ForgotPassword", () => {
   it("should render the componenet ForgotPassword", () => {
-    const wrapper = shallowMount(ForgotPassword);
+    const wrapper = shallowMount(ForgotPassword, {
+      attachTo: document.body,
+    });
     const button = wrapper.find("button");
     const inputEmail = wrapper.find("#inp-forgetPassword-email");
     const title = wrapper.find("h3");
@@ -28,7 +30,9 @@ describe("ForgotPassword", () => {
   });
 
   it("should verify content input of form", async () => {
-    const wrapper = shallowMount(ForgotPassword);
+    const wrapper = shallowMount(ForgotPassword, {
+      attachTo: document.body,
+    });
     const inputEmail = wrapper.find("#inp-forgetPassword-email");
 
     await inputEmail.setValue("teste@gmail.com");
@@ -36,7 +40,9 @@ describe("ForgotPassword", () => {
   });
 
   it("should verify submit form", async () => {
-    const wrapper = shallowMount(ForgotPassword);
+    const wrapper = shallowMount(ForgotPassword, {
+      attachTo: document.body,
+    });
     const form = wrapper.find("form");
     const button = wrapper.find("button");
     const inputEmail = wrapper.find("#inp-forgetPassword-email");
