@@ -9,6 +9,9 @@ cache:
 install:
   - yarn
 
+script: 
+    - yarn test:unit
+
 deploy:
  provider: pages
  skip_cleanup: true
