@@ -13,8 +13,7 @@
 
 ### 🏆 Aplicação
 
-![Alt Text](https://github.com/isa-desenvolvimento/trophy-front/blob/main/src/assets/trophy.gif)
-![Alt Text](https://github.com/isa-desenvolvimento/trophy-front/blob/main/src/assets/trophy-2.gif)
+![Alt Text](https://github.com/isa-desenvolvimento/trophy-front/blob/main/src/assets/trophy-3.gif)
 
 
 ### Pré-requisitos
