@@ -37,8 +37,8 @@ export default {
   data() {
     return {
       user: {
-        email: "",
-      },
+        email: ""
+      }
     };
   },
   methods: {
@@ -49,13 +49,13 @@ export default {
         .then(() => {
           alert("Check your registered email to reset the password!");
           this.user = {
-            email: "",
+            email: ""
           };
         })
-        .catch((error) => {
+        .catch(error => {
           alert(error);
         });
-    },
-  },
+    }
+  }
 };
 </script>

@@ -62,8 +62,8 @@ export default {
       user: {
         name: "",
         email: "",
-        password: "",
-      },
+        password: ""
+      }
     };
   },
   methods: {
@@ -71,19 +71,19 @@ export default {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.user.email, this.user.password)
-        .then((res) => {
+        .then(res => {
           res.user
             .updateProfile({
-              displayName: this.user.name,
+              displayName: this.user.name
             })
             .then(() => {
               this.$router.push("/login");
             });
         })
-        .catch((error) => {
+        .catch(error => {
           alert(error.message);
         });
-    },
-  },
+    }
+  }
 };
 </script>

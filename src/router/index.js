@@ -12,29 +12,29 @@ const routes = [
   {
     path: "/",
     name: "signup",
-    component: Signup,
+    component: Signup
   },
   {
     path: "/login",
     name: "login",
-    component: Login,
+    component: Login
   },
   {
     path: "/forgot-password",
     name: "forgot-password",
-    component: ForgotPassword,
+    component: ForgotPassword
   },
   {
     path: "/trophy",
     name: "trophy",
-    component: Trophy,
-  },
+    component: Trophy
+  }
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes,
+  routes
 });
 
 export default router;

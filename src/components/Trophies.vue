@@ -34,7 +34,7 @@ import {
   SILVER_COLOR,
   GOLD_COLOR,
   PLATINUM_COLOR,
-  DIAMOND_COLOR,
+  DIAMOND_COLOR
 } from "@/util/constants";
 
 export default {
@@ -47,7 +47,7 @@ export default {
       category_killed: BRONZE,
       color_killed: GOLD_COLOR,
       category_died: BRONZE,
-      color_died: PLATINUM_COLOR,
+      color_died: PLATINUM_COLOR
     };
   },
   methods: {
@@ -78,7 +78,7 @@ export default {
           this.color_coins = BRONZE_COLOR;
           break;
       }
-    },
-  },
+    }
+  }
 };
 </script>

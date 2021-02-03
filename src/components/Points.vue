@@ -33,6 +33,6 @@
 
 <script>
 export default {
-  props: ["coins", "killed", "died"],
+  props: ["coins", "killed", "died"]
 };
 </script>

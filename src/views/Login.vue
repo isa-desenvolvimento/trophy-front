@@ -50,8 +50,8 @@ export default {
     return {
       user: {
         email: "",
-        password: "",
-      },
+        password: ""
+      }
     };
   },
   methods: {
@@ -62,10 +62,10 @@ export default {
         .then(() => {
           this.$router.push("/trophy");
         })
-        .catch((error) => {
+        .catch(error => {
           alert(error.message);
         });
-    },
-  },
+    }
+  }
 };
 </script>

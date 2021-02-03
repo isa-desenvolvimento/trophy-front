@@ -8,7 +8,7 @@ import {
   faCircleNotch,
   faPastafarianism,
   faHeartBroken,
-  faSignOutAlt,
+  faSignOutAlt
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import store from "./store";
@@ -28,7 +28,7 @@ const firebaseConfig = {
   storageBucket: "iminer-46188.appspot.com",
   messagingSenderId: "228245190433",
   appId: "1:228245190433:web:c729c2f6594da42f3eb060",
-  measurementId: "G-BWS0Q2RG6N",
+  measurementId: "G-BWS0Q2RG6N"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -38,7 +38,7 @@ library.add([
   faCircleNotch,
   faPastafarianism,
   faHeartBroken,
-  faSignOutAlt,
+  faSignOutAlt
 ]);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
@@ -51,5 +51,5 @@ new Vue({
   FlowForm,
   axios,
   VueAxios,
-  render: (h) => h(App),
+  render: h => h(App)
 }).$mount("#app");
