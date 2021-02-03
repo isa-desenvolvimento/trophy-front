@@ -14,7 +14,7 @@
 🏆 Aplicação
 
 <h4 align="center"> 
-	🚧  GIF 🚀 Em construção...  🚧
+![](https://github.com/i-zzaa/trophy-front/blob/main/src/assets/trophy.gif)	
 </h4>
 
 ### Pré-requisitos
