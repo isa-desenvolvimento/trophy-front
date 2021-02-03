@@ -11,7 +11,7 @@
 - [x] Trophy
 - [x] Test Unity
 
-🏆 Aplicação
+### 🏆 Aplicação
 
 <h4 align="center"> 
    ![Alt Text](https://github.com/i-zzaa/trophy-front/blob/main/src/assets/trophy.gif)
@@ -54,3 +54,5 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Jest](https://jestjs.io/)
 - [Commitlint](https://commitlint.js.org/)
 - [Husky](https://www.husky.com.br/)
+
+
