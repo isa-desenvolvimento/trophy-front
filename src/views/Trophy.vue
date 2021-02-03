@@ -6,7 +6,12 @@
           <avatar id="avatar" />
         </div>
         <h1 id="name-user">Mario</h1>
-        <trophies :coins="3000" :died="100" :killed="1000" id="trophies" />
+        <trophies
+          id="trophies"
+          :categories="['Moedas', 'Matou', 'Morreu']"
+          :levels="[BRONZE, SILVER, DIAMOND]"
+          :colors="[BRONZE_COLOR, SILVER_COLOR, DIAMOND_COLOR]"
+        />
 
         <hr class="my-4 line" />
         <points :coins="3000" :died="100" :killed="1000" id="points" />
@@ -22,6 +27,18 @@ import Card from "@/components/Card.vue";
 import Avatar from "@/components/Avatar.vue";
 import Trophies from "../components/Trophies.vue";
 import Points from "../components/Points.vue";
+import {
+  BRONZE,
+  SILVER,
+  GOLD,
+  PLATINUM,
+  DIAMOND,
+  BRONZE_COLOR,
+  SILVER_COLOR,
+  GOLD_COLOR,
+  PLATINUM_COLOR,
+  DIAMOND_COLOR,
+} from "@/util/constants";
 
 export default {
   computed: {
@@ -37,6 +54,16 @@ export default {
         email: "",
         name: "Mario",
       },
+      BRONZE,
+      SILVER,
+      GOLD,
+      PLATINUM,
+      DIAMOND,
+      BRONZE_COLOR,
+      SILVER_COLOR,
+      GOLD_COLOR,
+      PLATINUM_COLOR,
+      DIAMOND_COLOR,
     };
   },
   mounted() {

@@ -5,10 +5,15 @@
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
     ref="card"
+    id="card-wrap"
   >
-    <div class="card" :style="cardStyle">
-      <div class="card-bg" :style="[cardBgTransform, cardBgImage]"></div>
-      <div class="card-info">
+    <div class="card" :style="cardStyle" id="card">
+      <div
+        class="card-bg"
+        id="card-bg"
+        :style="[cardBgTransform, cardBgImage]"
+      ></div>
+      <div class="card-info" id="card-info">
         <slot> </slot>
       </div>
     </div>

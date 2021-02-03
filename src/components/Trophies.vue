@@ -1,32 +1,24 @@
 <template>
   <div class="container container-row">
     <div class="row">
-      <div class="col-4">
-        <font-awesome-icon
-          icon="trophy"
-          class="icon-trophy"
-          :color="color_coins"
-        />
-      </div>
-      <div class="col-4">
-        <font-awesome-icon
-          icon="trophy"
-          class="icon-trophy"
-          :color="color_killed"
-        />
-      </div>
-      <div class="col-4">
-        <font-awesome-icon
-          icon="trophy"
-          class="icon-trophy"
-          :color="color_died"
-        />
+      <div class="col-4" v-for="color in colors" :key="color">
+        <font-awesome-icon icon="trophy" class="icon-trophy" :color="color" />
       </div>
     </div>
     <div class="row">
-      <div class="col-4">Moedas</div>
-      <div class="col-4">Matou</div>
-      <div class="col-4">Morreu</div>
+      <div
+        class="col-4"
+        v-for="(level, index) in levels"
+        :key="level"
+        :style="{ color: colors[index] }"
+      >
+        {{ level }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4" v-for="category in categories" :key="category">
+        {{ category }}
+      </div>
     </div>
   </div>
 </template>
@@ -46,13 +38,10 @@ import {
 } from "@/util/constants";
 
 export default {
-  created() {
-    this.getCoins();
-  },
-  props: ["coins", "killed", "died"],
+  props: ["levels", "categories", "colors"],
   data() {
     return {
-      trophy: ["Moedas", "Matou", "Morreu"],
+      trophies: ["Moedas", "Matou", "Morreu"],
       category_coins: BRONZE,
       color_coins: BRONZE_COLOR,
       category_killed: BRONZE,

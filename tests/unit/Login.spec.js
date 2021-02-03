@@ -1,6 +1,11 @@
-import { shallowMount } from "@vue/test-utils";
+import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Login from "@/views/Login.vue";
 import * as firebase from "firebase";
+import VueRouter from "vue-router";
+
+const localVue = createLocalVue();
+localVue.use(VueRouter);
+const router = new VueRouter();
 
 const onAuthStateChanged = jest.fn();
 const signInWithEmailAndPassword = jest.fn(() => {
@@ -17,7 +22,7 @@ jest.spyOn(firebase, "auth").mockImplementation(() => {
 
 describe("Login", () => {
   it("should render the componenet Login", () => {
-    const wrapper = shallowMount(Login);
+    const wrapper = shallowMount(Login, router);
     const button = wrapper.find("button");
     const inputEmail = wrapper.find("#inp-login-email");
     const inputPassword = wrapper.find("#inp-login-password");
