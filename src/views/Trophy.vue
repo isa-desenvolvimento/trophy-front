@@ -37,14 +37,14 @@ import {
   SILVER_COLOR,
   GOLD_COLOR,
   PLATINUM_COLOR,
-  DIAMOND_COLOR,
+  DIAMOND_COLOR
 } from "@/util/constants";
 
 export default {
   computed: {
     username() {
       return this.$route.params.username;
-    },
+    }
   },
   components: { Card, Avatar, Trophies, Points },
   data() {
@@ -52,7 +52,7 @@ export default {
       user: {
         displayName: "",
         email: "",
-        name: "Mario",
+        name: "Mario"
       },
       BRONZE,
       SILVER,
@@ -63,24 +63,24 @@ export default {
       SILVER_COLOR,
       GOLD_COLOR,
       PLATINUM_COLOR,
-      DIAMOND_COLOR,
+      DIAMOND_COLOR
     };
   },
   mounted() {
     axios
       .get("https://api.coindesk.com/v1/bpi/currentprice.json")
-      .then((response) => {
+      .then(response => {
         console.log(response);
       });
   },
   created() {
-    firebase.auth().onAuthStateChanged(async (user) => {
+    firebase.auth().onAuthStateChanged(async user => {
       if (await user) {
         this.user = user;
       } else {
         this.user = {
           displayName: "",
-          email: "",
+          email: ""
         };
       }
     });
@@ -95,7 +95,7 @@ export default {
             this.$router.push("/login");
           });
         });
-    },
-  },
+    }
+  }
 };
 </script>
