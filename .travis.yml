@@ -1,8 +1,8 @@
 language: node_js
 node_js:
   - "v14.15.3"
-cache:
-  - yarn
+install:
+  - yarn install
 script:
   # test
   - yarn test:unit 
