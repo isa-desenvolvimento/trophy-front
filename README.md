@@ -14,7 +14,7 @@
 ### 🏆 Aplicação
 
 <h4 align="center"> 
-   ![](http://github.com/isa-desenvolvimento/trophy-front/blob/main/src/assets/trophy-1.gif)
+   ![Alt Text](https://github.com/isa-desenvolvimento/trophy-front/blob/main/src/assets/trophy.gif)
 </h4>
 
 ### Pré-requisitos
