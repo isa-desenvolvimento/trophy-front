@@ -11,6 +11,7 @@ install:
 
 script: 
     - yarn test:unit
+    - yarn build
 
 deploy:
  provider: pages
