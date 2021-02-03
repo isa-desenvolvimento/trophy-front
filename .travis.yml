@@ -1,10 +1,16 @@
 language: node_js
 node_js:
- - "node"
+  - v14.15.3
 
-cache: npm
+cache: 
+  directories:
+    - node_modules
 
-script: npm run build
+install:
+  - yarn
+
+script: 
+    - yarn test:unit
 
 deploy:
  provider: pages
