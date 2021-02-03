@@ -1,8 +1,8 @@
 language: node_js
 node_js:
- - "node"
+  - stable
 
-cache: yarn
+cache: yarn install --production=true
 
 script: yarn build
 
