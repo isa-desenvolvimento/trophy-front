@@ -7,12 +7,13 @@ before_script:
   - sudo apt-get install expect
 script:
   # test
-  - yarn test:unit && yarn build
+  - yarn test:unit 
+  - yarn build
 deploy:
   provider: pages
   local-dir: demo/dist/
   skip-cleanup: true
-  github-token: e8cfd997ae8c08ffdc52d97e9bab00e85bc1da7e  
+  github-token: 'e8cfd997ae8c08ffdc52d97e9bab00e85bc1da7e'  
   keep-history: false
   on:
     branch: master
