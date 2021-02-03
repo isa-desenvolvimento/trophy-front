@@ -13,7 +13,7 @@ deploy:
   provider: pages
   local-dir: demo/dist/
   skip-cleanup: true
-  github-token: 'e8cfd997ae8c08ffdc52d97e9bab00e85bc1da7e'  
+  github-token: 'bc773e539e2bc5eb9a228882aa32b7baf3a538ab'  
   keep-history: false
   on:
     branch: master
