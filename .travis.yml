@@ -12,7 +12,6 @@ script:
   - yarn install --production
   - yarn test:unit
   - yarn run build
-  - yarn start
 deploy:
   provider: pages
   local-dir: dist/
