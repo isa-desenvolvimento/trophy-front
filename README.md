@@ -42,6 +42,11 @@ $ npm serve
 Ou 
 $ yarn serve
 
+# Execute os testes unitários
+$ npm test:unit
+Ou 
+$ yarn test:unit
+
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 ```
 
