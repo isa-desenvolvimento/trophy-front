@@ -14,7 +14,7 @@
 🏆 Aplicação
 
 <h4 align="center"> 
-![Demo](https://github.com/i-zzaa/trophy-front/blob/main/src/assets/trophy.gif)	
+![](https://github.com/i-zzaa/trophy-front/blob/main/src/assets/trophy.gif)	
 </h4>
 
 ### Pré-requisitos
