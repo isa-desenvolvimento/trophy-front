@@ -1,4 +1,4 @@
-import { shallowMount, createLocalVue } from "@vue/test-utils";
+import { mount, createLocalVue } from "@vue/test-utils";
 import Signup from "@/views/Signup.vue";
 import * as firebase from "firebase";
 import VueRouter from "vue-router";
@@ -12,9 +12,6 @@ const createUserWithEmailAndPassword = jest.fn(() => Promise.resolve());
 
 window.alert = jest.fn();
 
-jest.mock("@fortawesome/fontawesome-svg-core", () => "");
-jest.mock("@fortawesome/free-solid-svg-icons", () => "<div></div>");
-
 jest.spyOn(firebase, "auth").mockImplementation(() => {
   return {
     onAuthStateChanged,
@@ -24,7 +21,11 @@ jest.spyOn(firebase, "auth").mockImplementation(() => {
 
 describe("Signup", () => {
   it("should render the componenet Signup", () => {
-    const wrapper = shallowMount(Signup, router);
+    const wrapper = mount(Signup, {
+      localVue,
+      router,
+      attachTo: document.body,
+    });
     const button = wrapper.find("button");
     const inputEmail = wrapper.find("#inp-signup-email");
     const inputPassword = wrapper.find("#inp-signup-password");
@@ -39,7 +40,11 @@ describe("Signup", () => {
   });
 
   it("should verify content input of form", async () => {
-    const wrapper = shallowMount(Signup);
+    const wrapper = mount(Signup, {
+      localVue,
+      router,
+      attachTo: document.body,
+    });
     const inputEmail = wrapper.find("#inp-signup-email");
     const inputPassword = wrapper.find("#inp-signup-password");
     const inputName = wrapper.find("#inp-signup-name");
@@ -54,7 +59,11 @@ describe("Signup", () => {
   });
 
   it("should verify the action", async () => {
-    const wrapper = shallowMount(Signup);
+    const wrapper = mount(Signup, {
+      localVue,
+      router,
+      attachTo: document.body,
+    });
     const form = wrapper.find("form");
     const button = wrapper.find("button");
 

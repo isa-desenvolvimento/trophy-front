@@ -1,8 +1,8 @@
 <template>
   <div class="container-2">
     <card>
-      <form @submit.prevent="userRegistration" class="sign-up">
-        <h3>Sign Up</h3>
+      <form @submit.prevent="userRegistration" class="sign-up neon-container">
+        <h3 id="title-sign-up">Sign Up</h3>
 
         <div class="form-group">
           <label>Name</label>
@@ -50,9 +50,13 @@
 <script>
 import firebase from "firebase";
 import Card from "@/components/Card.vue";
+import { generateNeon } from "@/util/neon";
 
 export default {
   components: { Card },
+  mounted() {
+    generateNeon("title-sign-up");
+  },
   data() {
     return {
       user: {

@@ -1,4 +1,4 @@
-import { shallowMount, createLocalVue } from "@vue/test-utils";
+import { mount, createLocalVue } from "@vue/test-utils";
 import Login from "@/views/Login.vue";
 import * as firebase from "firebase";
 import VueRouter from "vue-router";
@@ -22,7 +22,11 @@ jest.spyOn(firebase, "auth").mockImplementation(() => {
 
 describe("Login", () => {
   it("should render the componenet Login", () => {
-    const wrapper = shallowMount(Login, router);
+    const wrapper = mount(Login, {
+      localVue,
+      router,
+      attachTo: document.body,
+    });
     const button = wrapper.find("button");
     const inputEmail = wrapper.find("#inp-login-email");
     const inputPassword = wrapper.find("#inp-login-password");
@@ -35,7 +39,11 @@ describe("Login", () => {
   });
 
   it("should verify the content of inputs of form", async () => {
-    const wrapper = shallowMount(Login);
+    const wrapper = mount(Login, {
+      localVue,
+      router,
+      attachTo: document.body,
+    });
     const inputEmail = wrapper.find("#inp-login-email");
     const inputPassword = wrapper.find("#inp-login-password");
 
@@ -47,7 +55,11 @@ describe("Login", () => {
   });
 
   it("should verify submit form", async () => {
-    const wrapper = shallowMount(Login);
+    const wrapper = mount(Login, {
+      localVue,
+      router,
+      attachTo: document.body,
+    });
     const form = wrapper.find("form");
     const inputEmail = wrapper.find("#inp-login-email");
     const inputPassword = wrapper.find("#inp-login-password");
