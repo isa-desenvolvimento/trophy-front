@@ -49,6 +49,7 @@ export default {
   data() {
     return {
       user: {
+        name: "",
         email: "",
         pass: ""
       }

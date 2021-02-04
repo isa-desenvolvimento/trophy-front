@@ -5,7 +5,9 @@ import VueRouter from "vue-router";
 
 const localVue = createLocalVue();
 localVue.use(VueRouter);
-const router = new VueRouter();
+const router = new VueRouter({
+  routes: [{ name: "login", path: "login", component: jest.fn() }]
+});
 
 const onAuthStateChanged = jest.fn();
 const createUserWithEmailAndPassword = jest.fn(() => Promise.resolve());
@@ -26,7 +28,7 @@ describe("Signup", () => {
       router,
       attachTo: document.body,
       data: jest.fn(() => {
-        return { user: { name: "" } };
+        return { username: "" };
       })
     });
     const button = wrapper.find("button");

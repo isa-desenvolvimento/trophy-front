@@ -5,7 +5,7 @@
         <div class="text-center">
           <avatar id="avatar" />
         </div>
-        <h1 id="name-user">{{ user.name }}</h1>
+        <h1 id="name-user">{{ username }}</h1>
         <trophies
           id="trophies"
           :categories="['Moedas', 'Matou', 'Morreu']"
@@ -48,30 +48,29 @@ export default {
   components: { Card, Avatar, Trophies, Points },
   data() {
     return {
-      user: {
-        id: "",
-        displayName: "",
-        email: "",
-        name: this.$route.params.user.name || ""
-      },
+      username: this.$route.params.user?.name,
       levels: [],
       colors: [],
       ranking: {}
     };
   },
   async mounted() {
-    const result = await getRanking(this.user.id);
-    const rank = result.data;
-    this.ranking.killed = rank.sum_kill_by_monster.reduce(
+    const result = await getRanking(this.$route.params.user?.id);
+    const rank = result?.data;
+    this.ranking.killed = rank?.sum_kill_by_monster.reduce(
       (total, killed) => total + killed
     );
 
-    this.levels = [rank.rank_coins, rank.rank_kill_monster_1, rank.rank_deaths];
+    this.levels = [
+      rank?.rank_coins,
+      rank?.rank_kill_monster_1,
+      rank?.rank_deaths
+    ];
 
     this.colors = [
-      this.getColor(rank.rank_coins),
-      this.getColor(rank.rank_kill_monster_1),
-      this.getColor(rank.rank_deaths)
+      this.getColor(rank?.rank_coins),
+      this.getColor(rank?.rank_kill_monster_1),
+      this.getColor(rank?.rank_deaths)
     ];
   },
   created() {
@@ -80,7 +79,7 @@ export default {
         this.user = user;
       } else {
         this.user = {
-          name: "Mario",
+          name: "",
           displayName: "",
           email: ""
         };
