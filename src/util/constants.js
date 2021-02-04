@@ -11,4 +11,4 @@ export const PLATINUM_COLOR = "#b8b7b2";
 export const DIAMOND_COLOR = "#cfe4ee";
 
 // export const BASE_URL = "https://trophy-api.herokuapp.com/";
-export const BASE_URL = "https://trophy-api.herokuapp.com/";
+export const BASE_URL = "http://localhost:3000/";
