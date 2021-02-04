@@ -11,14 +11,14 @@ const signOut = jest.fn(() => Promise.resolve());
 jest.spyOn(firebase, "auth").mockImplementation(() => {
   return {
     onAuthStateChanged,
-    signOut,
+    signOut
   };
 });
 
 describe("Trophy", () => {
   it("should render the componenet Trophy", () => {
     const wrapper = shallowMount(Trophy, {
-      localVue,
+      localVue
     });
     const trophies = wrapper.find("#trophies");
     const avatar = wrapper.find("#avatar");

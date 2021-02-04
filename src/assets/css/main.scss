@@ -311,3 +311,21 @@ body {
     text-align: center;
   }
 }
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8e0b0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #489070;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #42b983;
+}

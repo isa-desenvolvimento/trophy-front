@@ -10,7 +10,7 @@ import {
   DIAMOND,
   BRONZE_COLOR,
   SILVER_COLOR,
-  DIAMOND_COLOR,
+  DIAMOND_COLOR
 } from "@/util/constants";
 
 describe("Trophies", () => {
@@ -19,9 +19,9 @@ describe("Trophies", () => {
       propsData: {
         categories: ["Moedas", "Matou", "Morreu"],
         levels: [BRONZE, SILVER, DIAMOND],
-        colors: [BRONZE_COLOR, SILVER_COLOR, DIAMOND_COLOR],
+        colors: [BRONZE_COLOR, SILVER_COLOR, DIAMOND_COLOR]
       },
-      localVue,
+      localVue
     });
 
     expect(wrapper.props().categories).toEqual(["Moedas", "Matou", "Morreu"]);
@@ -29,7 +29,7 @@ describe("Trophies", () => {
     expect(wrapper.props().colors).toEqual([
       BRONZE_COLOR,
       SILVER_COLOR,
-      DIAMOND_COLOR,
+      DIAMOND_COLOR
     ]);
   });
 });

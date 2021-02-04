@@ -3,8 +3,7 @@ module.exports = {
   devServer: {
     overlay: {
       warnings: true,
-      errors: true,
-    },
-  },
-  publicPath: process.env.NODE_ENV === "production" ? "/trophy-front/" : "/",
+      errors: true
+    }
+  }
 };

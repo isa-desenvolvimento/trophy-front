@@ -16,7 +16,7 @@ window.alert = jest.fn();
 jest.spyOn(firebase, "auth").mockImplementation(() => {
   return {
     onAuthStateChanged,
-    signInWithEmailAndPassword,
+    signInWithEmailAndPassword
   };
 });
 
@@ -25,7 +25,7 @@ describe("Login", () => {
     const wrapper = mount(Login, {
       localVue,
       router,
-      attachTo: document.body,
+      attachTo: document.body
     });
     const button = wrapper.find("button");
     const inputEmail = wrapper.find("#inp-login-email");
@@ -42,7 +42,7 @@ describe("Login", () => {
     const wrapper = mount(Login, {
       localVue,
       router,
-      attachTo: document.body,
+      attachTo: document.body
     });
     const inputEmail = wrapper.find("#inp-login-email");
     const inputPassword = wrapper.find("#inp-login-password");
@@ -58,7 +58,7 @@ describe("Login", () => {
     const wrapper = mount(Login, {
       localVue,
       router,
-      attachTo: document.body,
+      attachTo: document.body
     });
     const form = wrapper.find("form");
     const inputEmail = wrapper.find("#inp-login-email");
