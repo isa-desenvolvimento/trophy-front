@@ -8,7 +8,9 @@ export const getUser = id => {
 };
 
 export const postUser = user => {
+  console.log(user);
   axios.post(`${BASE_URL}user/`, user).then(response => {
+    console.log(response.data);
     return response.data;
   });
 };

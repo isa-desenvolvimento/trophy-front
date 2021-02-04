@@ -20,7 +20,7 @@
             id="inp-login-password"
             type="password"
             class="form-control form-control-md input"
-            v-model="user.password"
+            v-model="user.pass"
           />
         </div>
 
@@ -50,18 +50,15 @@ export default {
     return {
       user: {
         email: "",
-        password: ""
+        pass: ""
       }
     };
   },
   methods: {
-    userLogin: async () => {
-      this.user = await auth({
-        email: this.user.email,
-        pass: this.user.password
-      });
-      if (this.user) {
-        this.$router.push("/trophy");
+    async userLogin() {
+      const result = await auth(this.user);
+      if (result) {
+        this.$router.push("/trophy", result.data);
       } else {
         alert("error.message");
       }

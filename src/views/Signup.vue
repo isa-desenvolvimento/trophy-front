@@ -30,7 +30,7 @@
             id="inp-signup-password"
             type="password"
             class="form-control form-control-md input"
-            v-model="user.password"
+            v-model="user.pass"
           />
         </div>
 
@@ -62,17 +62,14 @@ export default {
       user: {
         name: "",
         email: "",
-        password: ""
+        pass: ""
       }
     };
   },
   methods: {
-    userRegistration: async () => {
-      this.user = await postUser({
-        email: this.user.email,
-        pass: this.user.password
-      });
-      if (this.user) {
+    async userRegistration() {
+      const result = await postUser(this.user);
+      if (result) {
         this.$router.push("/login");
       } else {
         alert("error.message");
