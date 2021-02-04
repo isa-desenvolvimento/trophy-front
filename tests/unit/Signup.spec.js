@@ -24,7 +24,10 @@ describe("Signup", () => {
     const wrapper = mount(Signup, {
       localVue,
       router,
-      attachTo: document.body
+      attachTo: document.body,
+      data: jest.fn(() => {
+        return { user: { name: "" } };
+      })
     });
     const button = wrapper.find("button");
     const inputEmail = wrapper.find("#inp-signup-email");
@@ -43,7 +46,11 @@ describe("Signup", () => {
     const wrapper = mount(Signup, {
       localVue,
       router,
-      attachTo: document.body
+      attachTo: document.body,
+      data: jest.fn(() => {
+        return { user: { name: "" } };
+      }),
+      userRegistration: jest.fn()
     });
     const inputEmail = wrapper.find("#inp-signup-email");
     const inputPassword = wrapper.find("#inp-signup-password");
@@ -62,7 +69,11 @@ describe("Signup", () => {
     const wrapper = mount(Signup, {
       localVue,
       router,
-      attachTo: document.body
+      attachTo: document.body,
+      data: jest.fn(() => {
+        return { user: { name: "" } };
+      }),
+      userRegistration: jest.fn()
     });
     const form = wrapper.find("form");
     const button = wrapper.find("button");

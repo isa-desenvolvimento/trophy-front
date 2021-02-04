@@ -25,7 +25,10 @@ describe("Login", () => {
     const wrapper = mount(Login, {
       localVue,
       router,
-      attachTo: document.body
+      attachTo: document.body,
+      data: jest.fn(() => {
+        return { user: { email: "", password: "" } };
+      })
     });
     const button = wrapper.find("button");
     const inputEmail = wrapper.find("#inp-login-email");
@@ -42,7 +45,10 @@ describe("Login", () => {
     const wrapper = mount(Login, {
       localVue,
       router,
-      attachTo: document.body
+      attachTo: document.body,
+      data: jest.fn(() => {
+        return { user: { email: "", password: "" } };
+      })
     });
     const inputEmail = wrapper.find("#inp-login-email");
     const inputPassword = wrapper.find("#inp-login-password");
@@ -58,7 +64,10 @@ describe("Login", () => {
     const wrapper = mount(Login, {
       localVue,
       router,
-      attachTo: document.body
+      attachTo: document.body,
+      data: jest.fn(() => {
+        return { user: { email: "", password: "" } };
+      })
     });
     const form = wrapper.find("form");
     const inputEmail = wrapper.find("#inp-login-email");

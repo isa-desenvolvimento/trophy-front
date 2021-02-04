@@ -18,7 +18,10 @@ jest.spyOn(firebase, "auth").mockImplementation(() => {
 describe("Trophy", () => {
   it("should render the componenet Trophy", () => {
     const wrapper = shallowMount(Trophy, {
-      localVue
+      localVue,
+      data: jest.fn(() => {
+        return { user: { name: "" } };
+      })
     });
     const trophies = wrapper.find("#trophies");
     const avatar = wrapper.find("#avatar");

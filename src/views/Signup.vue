@@ -48,9 +48,9 @@
 </template>
 
 <script>
-import firebase from "firebase";
 import Card from "@/components/Card.vue";
 import { generateNeon } from "@/util/neon";
+import { postUser } from "@/service/user.service";
 
 export default {
   components: { Card },
@@ -67,22 +67,16 @@ export default {
     };
   },
   methods: {
-    userRegistration() {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.user.email, this.user.password)
-        .then(res => {
-          res.user
-            .updateProfile({
-              displayName: this.user.name
-            })
-            .then(() => {
-              this.$router.push("/login");
-            });
-        })
-        .catch(error => {
-          alert(error.message);
-        });
+    userRegistration: async () => {
+      this.user = await postUser({
+        email: this.user.email,
+        pass: this.user.password
+      });
+      if (this.user) {
+        this.$router.push("/login");
+      } else {
+        alert("error.message");
+      }
     }
   }
 };

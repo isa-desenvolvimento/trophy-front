@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import firebase from "firebase";
+import { auth } from "@/service/login.service";
 import Card from "@/components/Card.vue";
 import { generateNeon } from "@/util/neon";
 
@@ -55,16 +55,16 @@ export default {
     };
   },
   methods: {
-    userLogin() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.user.email, this.user.password)
-        .then(() => {
-          this.$router.push("/trophy");
-        })
-        .catch(error => {
-          alert(error.message);
-        });
+    userLogin: async () => {
+      this.user = await auth({
+        email: this.user.email,
+        pass: this.user.password
+      });
+      if (this.user) {
+        this.$router.push("/trophy");
+      } else {
+        alert("error.message");
+      }
     }
   }
 };
