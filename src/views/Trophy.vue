@@ -5,23 +5,28 @@
         <div class="text-center">
           <avatar id="avatar" />
         </div>
-        <h1 id="name-user">Mario</h1>
+        <h1 id="name-user">{{ username }}</h1>
         <trophies
           id="trophies"
           :categories="['Moedas', 'Matou', 'Morreu']"
-          :levels="[BRONZE, SILVER, DIAMOND]"
-          :colors="[BRONZE_COLOR, SILVER_COLOR, DIAMOND_COLOR]"
+          :levels="levels"
+          :colors="colors"
         />
 
         <hr class="my-4 line" />
-        <points :coins="3000" :died="100" :killed="1000" id="points" />
+        <points
+          :coins="ranking.sum_coins"
+          :died="ranking.sum_deaths"
+          :killed="ranking.killed"
+          id="points"
+        />
       </div>
     </card>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import { getRanking } from "@/service/game.service";
 import firebase from "firebase";
 import Card from "@/components/Card.vue";
 import Avatar from "@/components/Avatar.vue";
@@ -32,7 +37,6 @@ import {
   SILVER,
   GOLD,
   PLATINUM,
-  DIAMOND,
   BRONZE_COLOR,
   SILVER_COLOR,
   GOLD_COLOR,
@@ -41,37 +45,33 @@ import {
 } from "@/util/constants";
 
 export default {
-  computed: {
-    username() {
-      return this.$route.params.username;
-    }
-  },
   components: { Card, Avatar, Trophies, Points },
   data() {
     return {
-      user: {
-        displayName: "",
-        email: "",
-        name: "Mario"
-      },
-      BRONZE,
-      SILVER,
-      GOLD,
-      PLATINUM,
-      DIAMOND,
-      BRONZE_COLOR,
-      SILVER_COLOR,
-      GOLD_COLOR,
-      PLATINUM_COLOR,
-      DIAMOND_COLOR
+      username: this.$route.params.user?.name,
+      levels: [],
+      colors: [],
+      ranking: {}
     };
   },
-  mounted() {
-    axios
-      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
-      .then(response => {
-        console.log(response);
-      });
+  async mounted() {
+    const result = await getRanking(this.$route.params.user?.id);
+    const rank = result?.data;
+    this.ranking.killed = rank?.sum_kill_by_monster.reduce(
+      (total, killed) => total + killed
+    );
+
+    this.levels = [
+      rank?.rank_coins,
+      rank?.rank_kill_monster_1,
+      rank?.rank_deaths
+    ];
+
+    this.colors = [
+      this.getColor(rank?.rank_coins),
+      this.getColor(rank?.rank_kill_monster_1),
+      this.getColor(rank?.rank_deaths)
+    ];
   },
   created() {
     firebase.auth().onAuthStateChanged(async user => {
@@ -79,6 +79,7 @@ export default {
         this.user = user;
       } else {
         this.user = {
+          name: "",
           displayName: "",
           email: ""
         };
@@ -95,6 +96,24 @@ export default {
             this.$router.push("/login");
           });
         });
+    },
+    getColor(rank) {
+      switch (rank) {
+        case BRONZE:
+          return BRONZE_COLOR;
+
+        case SILVER:
+          return SILVER_COLOR;
+
+        case GOLD:
+          return GOLD_COLOR;
+
+        case PLATINUM:
+          return PLATINUM_COLOR;
+
+        default:
+          return DIAMOND_COLOR;
+      }
     }
   }
 };

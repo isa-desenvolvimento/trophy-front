@@ -20,7 +20,7 @@
             id="inp-login-password"
             type="password"
             class="form-control form-control-md input"
-            v-model="user.password"
+            v-model="user.pass"
           />
         </div>
 
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import firebase from "firebase";
+import { auth } from "@/service/login.service";
 import Card from "@/components/Card.vue";
 import { generateNeon } from "@/util/neon";
 
@@ -49,22 +49,21 @@ export default {
   data() {
     return {
       user: {
+        name: "",
         email: "",
-        password: ""
+        pass: ""
       }
     };
   },
   methods: {
-    userLogin() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.user.email, this.user.password)
-        .then(() => {
-          this.$router.push("/trophy");
-        })
-        .catch(error => {
-          alert(error.message);
-        });
+    async userLogin() {
+      console.log(this.user);
+      const result = await auth(this.user);
+      if (result) {
+        this.$router.push("/trophy", result.data);
+      } else {
+        alert("error.message");
+      }
     }
   }
 };

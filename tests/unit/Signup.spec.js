@@ -5,7 +5,9 @@ import VueRouter from "vue-router";
 
 const localVue = createLocalVue();
 localVue.use(VueRouter);
-const router = new VueRouter();
+const router = new VueRouter({
+  routes: [{ name: "login", path: "login", component: jest.fn() }]
+});
 
 const onAuthStateChanged = jest.fn();
 const createUserWithEmailAndPassword = jest.fn(() => Promise.resolve());
@@ -24,7 +26,10 @@ describe("Signup", () => {
     const wrapper = mount(Signup, {
       localVue,
       router,
-      attachTo: document.body
+      attachTo: document.body,
+      data: jest.fn(() => {
+        return { username: "" };
+      })
     });
     const button = wrapper.find("button");
     const inputEmail = wrapper.find("#inp-signup-email");
@@ -43,7 +48,11 @@ describe("Signup", () => {
     const wrapper = mount(Signup, {
       localVue,
       router,
-      attachTo: document.body
+      attachTo: document.body,
+      data: jest.fn(() => {
+        return { user: { name: "" } };
+      }),
+      userRegistration: jest.fn()
     });
     const inputEmail = wrapper.find("#inp-signup-email");
     const inputPassword = wrapper.find("#inp-signup-password");
@@ -62,7 +71,11 @@ describe("Signup", () => {
     const wrapper = mount(Signup, {
       localVue,
       router,
-      attachTo: document.body
+      attachTo: document.body,
+      data: jest.fn(() => {
+        return { user: { name: "" } };
+      }),
+      userRegistration: jest.fn()
     });
     const form = wrapper.find("form");
     const button = wrapper.find("button");

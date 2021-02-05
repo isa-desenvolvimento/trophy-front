@@ -11,7 +11,7 @@
 - [x] Trophy
 - [x] Test Unity
 
-🏆 Aplicação
+🏆 Aplicação [Demo](https://trophy-front.herokuapp.com/)
 
 <h4 align="center"> 
    ![Alt Text](https://github.com/i-zzaa/trophy-front/blob/main/src/assets/trophy.gif)
@@ -20,7 +20,7 @@
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+[Git](https://git-scm.com), [Node.js - v14.15.3](https://nodejs.org/en/). 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 ### 🎲 Rodando o Front
@@ -32,14 +32,11 @@ $ git clone https://github.com/i-zzaa/trophy-front
 # Acesse a pasta do projeto no terminal/cmd
 $ cd trophy-front
 
-# Instale as dependências
-$ npm install
-Ou 
+# Instale as dependências - como está configurado no heroku o yarn
+# Está configurado para rodar com yarn 1.22.10
 $ yarn install
 
 # Execute a aplicação em modo de desenvolvimento
-$ npm serve
-Ou 
 $ yarn serve
 
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000>
