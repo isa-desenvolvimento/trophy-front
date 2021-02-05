@@ -57,6 +57,7 @@ export default {
   },
   methods: {
     async userLogin() {
+      console.log(this.user);
       const result = await auth(this.user);
       if (result) {
         this.$router.push("/trophy", result.data);
