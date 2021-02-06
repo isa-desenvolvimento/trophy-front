@@ -12,12 +12,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import store from "./store";
-import axios from "axios";
 import VueAxios from "vue-axios";
+import axios from "axios";
 import firebase from "firebase/app";
 import router from "./router";
 import FlowForm from "@ditdot-dev/vue-flow-form";
 Vue.config.productionTip = false;
+
+//Vue.http.options.root = process.env.API;
 
 import "@/assets/css/main.scss";
 

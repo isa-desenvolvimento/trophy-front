@@ -1,14 +1,17 @@
 import decode from "jwt-decode";
-import request from "./request";
+import request from "@/service/request";
 
-export const signIn = async user => {
-  const { token } = await request("POST", "/login", user);
+export async function signIn(email, password) {
+  const { token } = await request("POST", "/login", {
+    email,
+    password
+  });
   localStorage.set("token", token);
-};
+}
 
-export const signOut = () => {
+export function signOut() {
   localStorage.removeItem("token");
-};
+}
 
 export function isSignedIn() {
   const token = localStorage.getItem("token");

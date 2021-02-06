@@ -5,6 +5,7 @@ import Trophy from "@/views/Trophy.vue";
 import Signup from "@/views/Signup.vue";
 import Login from "@/views/Login.vue";
 import ForgotPassword from "@/views/ForgotPassword.vue";
+import { isSignedIn } from "@/service/auth";
 
 Vue.use(VueRouter);
 
@@ -27,13 +28,22 @@ const routes = [
   {
     path: "/trophy",
     name: "trophy",
-    component: Trophy
+    component: Trophy,
+    beforeEnter(_, __, next) {
+      // Impede usuários não assinados
+      if (isSignedIn()) {
+        // de acessar a página Home.
+        next();
+        return;
+      }
+      next("/login");
+    }
   }
 ];
 
 const router = new VueRouter({
   mode: "history",
-  base: process.env.BASE_URL,
+  base: process.env.API,
   routes
 });
 

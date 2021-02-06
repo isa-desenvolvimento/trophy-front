@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { auth } from "@/service/login.service";
+import { signIn } from "@/service/login.service";
 import Card from "@/components/Card.vue";
 import { generateNeon } from "@/util/neon";
 
@@ -49,7 +49,6 @@ export default {
   data() {
     return {
       user: {
-        name: "",
         email: "",
         pass: ""
       }
@@ -57,8 +56,7 @@ export default {
   },
   methods: {
     async userLogin() {
-      console.log(this.user);
-      const result = await auth(this.user);
+      const result = await signIn(this.user);
       if (result) {
         this.$router.push("/trophy", result.data);
       } else {
