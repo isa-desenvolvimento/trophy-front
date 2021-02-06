@@ -26,12 +26,12 @@
 </template>
 
 <script>
-import { getRanking } from "@/service/game.service";
-import firebase from "firebase";
+import request from "@/service/request";
+import { signOut } from "@/service/login.service";
 import Card from "@/components/Card.vue";
 import Avatar from "@/components/Avatar.vue";
-import Trophies from "../components/Trophies.vue";
-import Points from "../components/Points.vue";
+import Trophies from "@/components/Trophies.vue";
+import Points from "@/components/Points.vue";
 import {
   BRONZE,
   SILVER,
@@ -55,7 +55,10 @@ export default {
     };
   },
   async mounted() {
-    const result = await getRanking(this.$route.params.user?.id);
+    const result = await request(
+      "GET",
+      `trophy/${this.$route.params.user?.id}/rank`
+    );
     const rank = result?.data;
     this.ranking.killed = rank?.sum_kill_by_monster.reduce(
       (total, killed) => total + killed
@@ -73,29 +76,10 @@ export default {
       this.getColor(rank?.rank_deaths)
     ];
   },
-  created() {
-    firebase.auth().onAuthStateChanged(async user => {
-      if (await user) {
-        this.user = user;
-      } else {
-        this.user = {
-          name: "",
-          displayName: "",
-          email: ""
-        };
-      }
-    });
-  },
   methods: {
     logOut() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          firebase.auth().onAuthStateChanged(() => {
-            this.$router.push("/login");
-          });
-        });
+      signOut();
+      this.$router.push("/login");
     },
     getColor(rank) {
       switch (rank) {

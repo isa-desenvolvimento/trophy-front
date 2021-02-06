@@ -50,7 +50,7 @@
 <script>
 import Card from "@/components/Card.vue";
 import { generateNeon } from "@/util/neon";
-import { postUser } from "@/service/user.service";
+import request from "@/service/request";
 
 export default {
   components: { Card },
@@ -68,7 +68,7 @@ export default {
   },
   methods: {
     async userRegistration() {
-      const result = await postUser(this.user);
+      const result = await request("POST", "/signup", this.user);
       if (result) {
         this.$router.push("/login");
       } else {
