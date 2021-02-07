@@ -56,12 +56,8 @@ export default {
   },
   methods: {
     async userLogin() {
-      // document.getElementById("app").classList.toggle("body-singup");
-      // document.getElementById("app").classList.toggle("body-logged");
       const result = await signIn({ user: this.user });
       if (result) {
-        // document.getElementById("app").classList.toggle("body-logged");
-        // document.getElementById("app").classList.toggle("body-singup");
         localStorage.setItem("user", JSON.stringify(result));
         this.$router.replace({
           name: "trophy",
