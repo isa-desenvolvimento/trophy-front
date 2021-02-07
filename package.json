@@ -110,7 +110,7 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
-      "pre-commit": "lint-staged",
+      "pre-commit": "lint-staged && yarn test:unit",
       "pre-push": "yarn test:unit"
     }
   },
