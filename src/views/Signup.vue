@@ -68,7 +68,7 @@ export default {
   },
   methods: {
     async userRegistration() {
-      const result = await request("POST", "/signup", this.user);
+      const result = await request("post", "/signup", this.user);
       if (result) {
         this.$router.push("/login");
       } else {

@@ -11,24 +11,15 @@ function getHeaders() {
   };
 }
 
-async function request(method, url, body) {
+async function request(method, url, data) {
   const options = {
     method,
     headers: getHeaders(),
-    ...(method !== "GET" && {
-      body: JSON.stringify(body)
+    ...(method !== "get" && {
+      data: JSON.stringify(data)
     })
   };
-
-  let response;
-  switch (method) {
-    case "GET":
-      response = await axios.get(baseURL + url, options);
-      break;
-    default:
-      response = await axios.post(baseURL + url, options);
-      break;
-  }
+  const response = await axios(baseURL + url, options);
   return await response.json();
 }
 
