@@ -60,7 +60,7 @@ export default {
     };
   },
   async mounted() {
-    const result = await request("get", `trophy/${this.id}/rank`);
+    const result = await request("get", `trophy/${this.userId}/rank`);
     const rank = result?.data;
     this.ranking.killed = rank?.sum_kill_by_monster.reduce(
       (total, killed) => total + killed

@@ -10,24 +10,25 @@ $bushesWidth: 508px; $bushesHeight: 79px;
 $groundWidth: 68px; $groundHeight: 22px;
 $marioWidth: 30px; $marioHeight: 54px;
 
-// body {
-//   margin: 40px 0;
-//   font-family: "Raleway";
-//   font-size: 14px;
-//   font-weight: 500;
-//   background-color: #000000;
-//   -webkit-font-smoothing: antialiased;
-// }
+
+$background-mario: url("../img/mario.gif");
+$background-floor: url("../img/ground.png");
+$background-tree: url("../img/bushes.png");
+$background-img: url("../img/back.png");
+
+body {
+  text-align: center;
+  background-color: #F8E0B0;
+
+}
+
 .body-singup {
   height: 52em;
-  text-align: center;
   background-image:
-   // url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/mario.gif?raw=true'),
-    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/mario.gif?raw=true'),
-    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/ground.png?raw=true'),
-    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/bushes.png?raw=true'),
-    url('https://raw.githubusercontent.com/Kageetai/mario-background-parallax/master/img/back.png?raw=true');
-  background-color: #F8E0B0;
+    $background-mario,
+    $background-floor,
+    $background-tree,
+    $background-img;
   background-repeat:
     no-repeat,
     repeat-x,
@@ -43,47 +44,42 @@ $marioWidth: 30px; $marioHeight: 54px;
 
 .body-logged {
   height: 52em;
-  text-align: center;
   background-image:
-   // url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/mario.gif?raw=true'),
-    url('https://cdn2.scratch.mit.edu/get_image/user/61998694_60x60.png'),
-    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/ground.png?raw=true'),
-    url('https://external-preview.redd.it/KGVJQNmua7P9Iz-5E_nrx6ifHcMw7Npmrmqr1vcqJc4.png?format=pjpg&auto=webp&s=d14a41529997488635b652176168ea3cc31cc452');
-  background-color: #0951fe;
-  background-repeat:
-    no-repeat,
-    repeat-x,
-    repeat-x,
-    repeat-x;
-  background-position:
-    left 30% bottom $groundHeight,
-    left 0px bottom 0px,
-    left 0px bottom $groundHeight,
-    left 0px bottom 0px;
-  animation: back 15s infinite linear;
+    $background-mario,
+    $background-floor,
+    $background-tree,
+    $background-img;
+    background-repeat:
+      no-repeat,
+      repeat-x,
+      repeat-x,
+      repeat-x;
+    background-position:
+      left 30% bottom $groundHeight,
+      left 0px bottom 0px,
+      left 0px bottom $groundHeight,
+      left 0px bottom 0px;
+    animation: back 15s infinite linear;
 }
 
 .body-singin {
   height: 52em;
-  text-align: center;
   background-image:
-   // url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/mario.gif?raw=true'),
-    url('https://gente.globo.com/esports/images/mario2.gif'),
-    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/ground.png?raw=true'),
-    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/bushes.png?raw=true'),
-    url('https://raw.githubusercontent.com/Kageetai/mario-background-parallax/master/img/back.png?raw=true');
-  background-color: #F8E0B0;
-  background-repeat:
-    no-repeat,
-    repeat-x,
-    repeat-x,
-    repeat-x;
-  background-position:
-    left 30% bottom $groundHeight,
-    left 0px bottom 0px,
-    left 0px bottom $groundHeight,
-    left 0px bottom 0px;
-  animation: back 15s infinite linear;
+    $background-mario,
+    $background-floor,
+    $background-tree,
+    $background-img;
+    background-repeat:
+      no-repeat,
+      repeat-x,
+      repeat-x,
+      repeat-x;
+    background-position:
+      left 30% bottom $groundHeight,
+      left 0px bottom 0px,
+      left 0px bottom $groundHeight,
+      left 0px bottom 0px;
+    animation: back 15s infinite linear;
 }
 
 @keyframes back {
