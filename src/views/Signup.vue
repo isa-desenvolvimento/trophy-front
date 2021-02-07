@@ -51,6 +51,7 @@
 import Card from "@/components/Card.vue";
 import { generateNeon } from "@/util/neon";
 import request from "@/service/request";
+import { isEmpty } from "@/util/util";
 
 export default {
   components: { Card },
@@ -68,16 +69,21 @@ export default {
   },
   methods: {
     async userRegistration() {
-      const result = await request("post", "/signup", this.user);
+      if (isEmpty(this.user)) {
+        const result = await request("post", "/signup", this.user);
 
-      if (result) {
-        this.$router.push("/login");
-        // setTimeout(() => {
-        //   document.getElementById("app").classList.toggle("body-singin");
-        //   document.getElementById("app").classList.toggle("body-singup");
-        // }, 3000);
+        if (result) {
+          this.$router.push("/login");
+          this.$store.commit("isSuccess");
+          // setTimeout(() => {
+          //   document.getElementById("app").classList.toggle("body-singin");
+          //   document.getElementById("app").classList.toggle("body-singup");
+          // }, 3000);
+        } else {
+          this.$store.commit("isError");
+        }
       } else {
-        alert("error.message");
+        this.$store.commit("isError");
       }
     }
   }
