@@ -1,5 +1,5 @@
 {
-  "name": "trophy-front-2",
+  "name": "trophy-front",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -40,6 +40,7 @@
     "vue-axios": "^3.2.4",
     "vue-icon": "^2.1.2",
     "vue-jest": "^3.0.7",
+    "vue-resource": "^1.5.1",
     "vue-route": "^1.5.1",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2"

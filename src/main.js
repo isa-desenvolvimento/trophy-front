@@ -17,9 +17,7 @@ import axios from "axios";
 import firebase from "firebase/app";
 import router from "./router";
 import FlowForm from "@ditdot-dev/vue-flow-form";
-Vue.config.productionTip = false;
-
-//Vue.http.options.root = process.env.API;
+import VueResource from "vue-resource";
 
 import "@/assets/css/main.scss";
 
@@ -44,6 +42,10 @@ library.add([
 ]);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
+Vue.use(VueResource);
+
+Vue.config.productionTip = false;
+Vue.http.options.root = process.env.API;
 
 new Vue({
   router,

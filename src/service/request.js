@@ -1,4 +1,6 @@
+//const baseURL = "https://trophy-api.herokuapp.com";
 const baseURL = "https://trophy-api.herokuapp.com";
+console.log(process.env.API);
 import axios from "axios";
 
 function getHeaders() {
