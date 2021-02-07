@@ -1,11 +1,11 @@
 <template>
   <div class="container-2 trophy-page">
     <card>
-      <div class="trophy-page">
+      <div class="trophy-page neon-container">
         <div class="text-center">
           <avatar id="avatar" />
         </div>
-        <h1 id="name-user">{{ username }}</h1>
+        <h3 id="title-username">{{ username }}</h3>
         <trophies
           id="trophies"
           :categories="['Moedas', 'Matou', 'Morreu']"
@@ -32,6 +32,7 @@ import Card from "@/components/Card.vue";
 import Avatar from "@/components/Avatar.vue";
 import Trophies from "@/components/Trophies.vue";
 import Points from "@/components/Points.vue";
+import { generateNeon } from "@/util/neon";
 import {
   BRONZE,
   SILVER,
@@ -41,7 +42,9 @@ import {
   SILVER_COLOR,
   GOLD_COLOR,
   PLATINUM_COLOR,
-  DIAMOND_COLOR
+  DIAMOND_COLOR,
+  DIAMOND,
+  INITIAL_COLOR
 } from "@/util/constants";
 
 export default {
@@ -54,12 +57,18 @@ export default {
     return {
       username: user.name || "Mario",
       userId: user.id,
-      levels: [],
-      colors: [],
-      ranking: {}
+      levels: ["Noob", "Noob", "Noob"],
+      colors: [INITIAL_COLOR, INITIAL_COLOR, INITIAL_COLOR],
+      ranking: {
+        sum_coins: "⎻",
+        sum_deaths: "⎻",
+        killed: "⎻"
+      }
     };
   },
   async mounted() {
+    generateNeon("title-username");
+
     const result = await request("get", `trophy/${this.userId}/rank`);
     const rank = result?.data;
     this.ranking.killed = rank?.sum_kill_by_monster.reduce(
@@ -97,8 +106,11 @@ export default {
         case PLATINUM:
           return PLATINUM_COLOR;
 
-        default:
+        case DIAMOND:
           return DIAMOND_COLOR;
+
+        default:
+          return INITIAL_COLOR;
       }
     }
   }
