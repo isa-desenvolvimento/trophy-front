@@ -23,14 +23,13 @@ describe("Trophy", () => {
       router
     });
 
-    wrapper.setData({ username: "" });
-
     const trophies = wrapper.find("#trophies");
     const avatar = wrapper.find("#avatar");
     const points = wrapper.find("#points");
     const nameUser = wrapper.find("#name-user");
 
     expect(nameUser.exists()).toBeTruthy();
+    expect(nameUser.text()).toEqual("teste");
     expect(trophies.exists()).toBeTruthy();
     expect(points.exists()).toBeTruthy();
     expect(avatar.exists()).toBeTruthy();

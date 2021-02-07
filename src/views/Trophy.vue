@@ -53,16 +53,14 @@ export default {
 
     return {
       username: user.name || "Mario",
+      userId: user.id,
       levels: [],
       colors: [],
       ranking: {}
     };
   },
   async mounted() {
-    const result = await request(
-      "get",
-      `trophy/${this.$route.params?.id}/rank`
-    );
+    const result = await request("get", `trophy/${this.id}/rank`);
     const rank = result?.data;
     this.ranking.killed = rank?.sum_kill_by_monster.reduce(
       (total, killed) => total + killed
