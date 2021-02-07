@@ -1,24 +1,10 @@
 import { mount, createLocalVue } from "@vue/test-utils";
 import Login from "@/views/Login.vue";
-import * as firebase from "firebase";
 import VueRouter from "vue-router";
 
 const localVue = createLocalVue();
 localVue.use(VueRouter);
 const router = new VueRouter();
-
-const onAuthStateChanged = jest.fn();
-const signInWithEmailAndPassword = jest.fn(() => {
-  return Promise.resolve("result of signInWithEmailAndPassword");
-});
-
-window.alert = jest.fn();
-jest.spyOn(firebase, "auth").mockImplementation(() => {
-  return {
-    onAuthStateChanged,
-    signInWithEmailAndPassword
-  };
-});
 
 describe("Login", () => {
   it("should render the componenet Login", () => {

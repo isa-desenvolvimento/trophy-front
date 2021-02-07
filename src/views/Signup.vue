@@ -68,16 +68,14 @@ export default {
   },
   methods: {
     async userRegistration() {
-      document.getElementById("app").classList.toggle("body-singup");
-      document.getElementById("app").classList.toggle("body-singin");
       const result = await request("post", "/signup", this.user);
 
       if (result) {
         this.$router.push("/login");
-        setTimeout(() => {
-          document.getElementById("app").classList.toggle("body-singin");
-          document.getElementById("app").classList.toggle("body-singup");
-        }, 3000);
+        // setTimeout(() => {
+        //   document.getElementById("app").classList.toggle("body-singin");
+        //   document.getElementById("app").classList.toggle("body-singup");
+        // }, 3000);
       } else {
         alert("error.message");
       }

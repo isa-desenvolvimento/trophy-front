@@ -47,10 +47,9 @@ import {
 export default {
   components: { Card, Avatar, Trophies, Points },
   data() {
-    console.log("hakdhaskudhaksh");
-    const user = this.$route.params?.name
+    const user = this.$route.params.name
       ? this.$route.params
-      : JSON.parse(localStorage.length("user"));
+      : JSON.parse(localStorage.getItem("user"));
 
     return {
       username: user.name || "Mario",
