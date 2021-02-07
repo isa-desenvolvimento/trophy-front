@@ -2,13 +2,23 @@
   <div id="app" class="body-singup">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/login" v-if="!this.$store.state.isLogedIn"
+      <router-link to="/login" v-if="!$store.getters.isLoged"
         >Signin</router-link
       >
-      <router-link to="/login" v-if="this.$store.state.isLogedIn"
+      <router-link to="/login" v-if="$store.getters.isLoged"
         >Logout <font-awesome-icon icon="sign-out-alt" class="icon-logout icons"
       /></router-link>
     </div>
     <router-view />
+    <div v-if="$store.getters.isError" class="alert alert-danger" role="alert">
+      👾 OPS! Falha no engano
+    </div>
+    <div
+      v-if="$store.getters.isSuccess"
+      class="alert alert-success"
+      role="alert"
+    >
+      BOA!!!! 🥳
+    </div>
   </div>
 </template>

@@ -27,7 +27,6 @@
 
 <script>
 import request from "@/service/request";
-import { signOut } from "@/service/auth";
 import Card from "@/components/Card.vue";
 import Avatar from "@/components/Avatar.vue";
 import Trophies from "@/components/Trophies.vue";
@@ -88,10 +87,6 @@ export default {
     ];
   },
   methods: {
-    logOut() {
-      signOut();
-      this.$router.push("/login");
-    },
     getColor(rank) {
       switch (rank) {
         case BRONZE:

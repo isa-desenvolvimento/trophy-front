@@ -40,11 +40,14 @@
 import { signIn } from "@/service/auth";
 import Card from "@/components/Card.vue";
 import { generateNeon } from "@/util/neon";
+import { signOut } from "@/service/auth";
 
 export default {
   components: { Card },
   mounted() {
     generateNeon("title-sign-in");
+    signOut();
+    this.$store.commit("isLoged", false);
   },
   data() {
     return {
@@ -57,15 +60,18 @@ export default {
   methods: {
     async userLogin() {
       const result = await signIn({ user: this.user });
-      if (result) {
+      if (result.jti) {
         localStorage.setItem("user", JSON.stringify(result));
+        this.$store.commit("isLoged");
+        this.$store.commit("isSuccess");
+
         this.$router.replace({
           name: "trophy",
           path: "/trophy",
           params: result
         });
       } else {
-        alert("error.message");
+        this.$store.commit("isError");
       }
     }
   }
