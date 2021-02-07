@@ -27,7 +27,7 @@
 
 <script>
 import request from "@/service/request";
-import { signOut } from "@/service/login.service";
+import { signOut } from "@/service/auth";
 import Card from "@/components/Card.vue";
 import Avatar from "@/components/Avatar.vue";
 import Trophies from "@/components/Trophies.vue";
@@ -56,7 +56,7 @@ export default {
   },
   async mounted() {
     const result = await request(
-      "GET",
+      "get",
       `trophy/${this.$route.params.user?.id}/rank`
     );
     const rank = result?.data;

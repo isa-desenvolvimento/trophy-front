@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { signIn } from "@/service/login.service";
+import { signIn } from "@/service/auth";
 import Card from "@/components/Card.vue";
 import { generateNeon } from "@/util/neon";
 
