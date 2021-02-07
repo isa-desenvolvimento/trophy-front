@@ -62,7 +62,7 @@ export default {
       if (result) {
         // document.getElementById("app").classList.toggle("body-logged");
         // document.getElementById("app").classList.toggle("body-singup");
-        localStorage.setItem("user", JSON.stringify(this.user));
+        localStorage.setItem("user", JSON.stringify(result));
         this.$router.replace({
           name: "trophy",
           path: "/trophy",
