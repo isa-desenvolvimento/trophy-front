@@ -47,8 +47,13 @@ import {
 export default {
   components: { Card, Avatar, Trophies, Points },
   data() {
+    console.log("hakdhaskudhaksh");
+    const user = this.$route.params?.name
+      ? this.$route.params
+      : JSON.parse(localStorage.length("user"));
+
     return {
-      username: this.$route.params.user?.name,
+      username: user.name || "Mario",
       levels: [],
       colors: [],
       ranking: {}
@@ -57,7 +62,7 @@ export default {
   async mounted() {
     const result = await request(
       "get",
-      `trophy/${this.$route.params.user?.id}/rank`
+      `trophy/${this.$route.params?.id}/rank`
     );
     const rank = result?.data;
     this.ranking.killed = rank?.sum_kill_by_monster.reduce(

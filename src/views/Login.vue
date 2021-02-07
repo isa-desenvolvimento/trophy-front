@@ -20,7 +20,7 @@
             id="inp-login-password"
             type="password"
             class="form-control form-control-md input"
-            v-model="user.pass"
+            v-model="user.password"
           />
         </div>
 
@@ -50,15 +50,24 @@ export default {
     return {
       user: {
         email: "",
-        pass: ""
+        password: ""
       }
     };
   },
   methods: {
     async userLogin() {
-      const result = await signIn(this.user);
+      document.getElementById("app").classList.toggle("body-singup");
+      document.getElementById("app").classList.toggle("body-logged");
+      const result = await signIn({ user: this.user });
       if (result) {
-        this.$router.push("/trophy", result.data);
+        document.getElementById("app").classList.toggle("body-logged");
+        document.getElementById("app").classList.toggle("body-singup");
+        localStorage.setItem("user", JSON.stringify(this.user));
+        this.$router.replace({
+          name: "trophy",
+          path: "/trophy",
+          params: result
+        });
       } else {
         alert("error.message");
       }

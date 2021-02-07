@@ -1,6 +1,5 @@
 //const baseURL = "https://trophy-api.herokuapp.com";
 const baseURL = "https://trophy-api.herokuapp.com";
-console.log(process.env.API);
 import axios from "axios";
 
 function getHeaders() {
@@ -21,8 +20,8 @@ async function request(method, url, data) {
       data: JSON.stringify(data)
     })
   };
-  const response = await axios(baseURL + url, options);
-  return await response.json();
+  return await axios(baseURL + url, options);
+  //return await response.json();
 }
 
 export { request as default, request, getHeaders };

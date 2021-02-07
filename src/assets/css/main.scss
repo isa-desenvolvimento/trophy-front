@@ -18,11 +18,57 @@ $marioWidth: 30px; $marioHeight: 54px;
 //   background-color: #000000;
 //   -webkit-font-smoothing: antialiased;
 // }
-body {
+.body-singup {
   height: 52em;
   text-align: center;
   background-image:
+   // url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/mario.gif?raw=true'),
     url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/mario.gif?raw=true'),
+    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/ground.png?raw=true'),
+    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/bushes.png?raw=true'),
+    url('https://raw.githubusercontent.com/Kageetai/mario-background-parallax/master/img/back.png?raw=true');
+  background-color: #F8E0B0;
+  background-repeat:
+    no-repeat,
+    repeat-x,
+    repeat-x,
+    repeat-x;
+  background-position:
+    left 30% bottom $groundHeight,
+    left 0px bottom 0px,
+    left 0px bottom $groundHeight,
+    left 0px bottom 0px;
+  animation: back 15s infinite linear;
+}
+
+.body-logged {
+  height: 52em;
+  text-align: center;
+  background-image:
+   // url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/mario.gif?raw=true'),
+    url('https://cdn2.scratch.mit.edu/get_image/user/61998694_60x60.png'),
+    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/ground.png?raw=true'),
+    url('https://external-preview.redd.it/KGVJQNmua7P9Iz-5E_nrx6ifHcMw7Npmrmqr1vcqJc4.png?format=pjpg&auto=webp&s=d14a41529997488635b652176168ea3cc31cc452');
+  background-color: #0951fe;
+  background-repeat:
+    no-repeat,
+    repeat-x,
+    repeat-x,
+    repeat-x;
+  background-position:
+    left 30% bottom $groundHeight,
+    left 0px bottom 0px,
+    left 0px bottom $groundHeight,
+    left 0px bottom 0px;
+  animation: back 15s infinite linear;
+}
+
+.body-singin {
+  height: 52em;
+  text-align: center;
+  background-image:
+   // url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/mario.gif?raw=true'),
+    url('https://gente.globo.com/esports/images/mario2.gif'),
     url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/ground.png?raw=true'),
     url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/bushes.png?raw=true'),
     url('https://raw.githubusercontent.com/Kageetai/mario-background-parallax/master/img/back.png?raw=true');
@@ -125,15 +171,15 @@ body {
   }
 }
 .avatar {
-  width: 85px;
-  height: 85px;
+  width: 100px;
+  height: 100px;
   border-radius: 4rem !important;
   box-shadow:
   rgba(black, 0.70) 2px 2px 20px 0,
   inset #37c8004d 0 0 0 5px,
   inset rgba(white, 0.5) 0 0 0 6px;
   margin-bottom:  40px;
-  margin-top: -40px;
+  margin-top: 20px;
 }
 
 .card-wrap {

@@ -30,7 +30,7 @@
             id="inp-signup-password"
             type="password"
             class="form-control form-control-md input"
-            v-model="user.pass"
+            v-model="user.password"
           />
         </div>
 
@@ -62,15 +62,22 @@ export default {
       user: {
         name: "",
         email: "",
-        pass: ""
+        password: ""
       }
     };
   },
   methods: {
     async userRegistration() {
+      document.getElementById("app").classList.toggle("body-singup");
+      document.getElementById("app").classList.toggle("body-singin");
       const result = await request("post", "/signup", this.user);
+
       if (result) {
         this.$router.push("/login");
+        setTimeout(() => {
+          document.getElementById("app").classList.toggle("body-singin");
+          document.getElementById("app").classList.toggle("body-singup");
+        }, 3000);
       } else {
         alert("error.message");
       }
