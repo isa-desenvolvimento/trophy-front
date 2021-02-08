@@ -14,7 +14,7 @@ export const signOut = () => {
 };
 
 export function isSignedIn() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token") || null;
 
   if (!token)
     // Se não existe o token no LocalStorage
