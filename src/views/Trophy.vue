@@ -82,15 +82,12 @@ export default {
           killed: sum
         };
 
-        this.levels = [
-          data.rank_coins,
-          data.rank_kill_monster_1 || data.rank_kill_monster_2,
-          data.rank_deaths
-        ];
+        const level = data.rank_kill_monster_1 || data.rank_kill_monster_2;
+        this.levels = [data.rank_coins, level, data.rank_deaths];
 
         this.colors = [
           this.getColor(data.rank_coins),
-          this.getColor(data.rank_kill_monster_1),
+          this.getColor(level),
           this.getColor(data.rank_deaths)
         ];
       }
