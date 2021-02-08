@@ -69,23 +69,31 @@ export default {
     this.$store.commit("isLoged");
     generateNeon("title-username");
     try {
-      const result = await request("get", `/trophy/${this.userId}/rank`);
-      if (result) {
-        const rank = result.data;
-        this.ranking.killed = rank.sum_kill_by_monster.reduce(
+      const result = await request("get", `/trophy/1/rank`);
+      if (result.data) {
+        const { data } = result.data;
+        console.log(data);
+
+        const sum = Object.values(data.sum_kill_by_monster).reduce(
           (total, killed) => total + killed
         );
 
+        this.ranking = {
+          sum_coins: data.sum_coins,
+          sum_deaths: data.sum_deaths,
+          killed: sum
+        };
+
         this.levels = [
-          rank.rank_coins,
-          rank.rank_kill_monster_1,
-          rank.rank_deaths
+          data.rank_coins,
+          data.rank_kill_monster_1,
+          data.rank_deaths
         ];
 
         this.colors = [
-          this.getColor(rank.rank_coins),
-          this.getColor(rank.rank_kill_monster_1),
-          this.getColor(rank.rank_deaths)
+          this.getColor(data.rank_coins),
+          this.getColor(data.rank_kill_monster_1),
+          this.getColor(data.rank_deaths)
         ];
       }
     } catch (error) {
