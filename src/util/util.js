@@ -1,5 +1,5 @@
-export const isEmpty = obj => {
+export const _isEmpty = obj => {
   return Object.keys(obj).every(item => {
-    return !!isEmpty(obj[item]);
+    return obj[item] === "" || obj[item] === null || obj[item] === undefined;
   });
 };

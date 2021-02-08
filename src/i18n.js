@@ -22,8 +22,8 @@ const pt = {
   NAME: "Nome",
   EMAIL: "E-mail",
   PASSWORD: "Senha",
-  ALREADY_REGISTERED: "Already registered",
-  FORGOT_PASSWORD: "Recuerar senha ",
+  ALREADY_REGISTERED: "Já registrado?",
+  FORGOT_PASSWORD: "Recuperar senha ",
   RESET_PASSWORD: "Alterar senha"
 };
 

@@ -52,3 +52,5 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Commitlint](https://commitlint.js.org/)
 - [Husky](https://www.husky.com.br/)
 - [Travis CI](https://travis-ci.com/)
+- [I18n](https://kazupon.github.io/vue-i18n/installation.html)
+

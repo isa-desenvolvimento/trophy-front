@@ -51,7 +51,8 @@
 import Card from "@/components/Card.vue";
 import { generateNeon } from "@/util/neon";
 import request from "@/service/request";
-import { isEmpty } from "@/util/util";
+import { _isEmpty } from "@/util/util";
+import { signIn } from "@/service/auth";
 
 export default {
   components: { Card },
@@ -69,17 +70,26 @@ export default {
   },
   methods: {
     async userRegistration() {
-      if (!isEmpty(this.user)) {
+      if (!_isEmpty(this.user)) {
         try {
-          const result = await request("post", "/signup", this.user);
+          console.log(this.user);
+          const result = await request("post", "/signup", { user: this.user });
 
           if (result) {
-            this.$router.push("/login");
-            this.$store.commit("isSuccess");
-            // setTimeout(() => {
-            //   document.getElementById("app").classList.toggle("body-singin");
-            //   document.getElementById("app").classList.toggle("body-singup");
-            // }, 3000);
+            const result = await signIn({ user: this.user });
+            if (result.jti) {
+              localStorage.setItem("user", JSON.stringify(result));
+              this.$store.commit("isLoged");
+              this.$store.commit("isSuccess");
+
+              this.$router.replace({
+                name: "trophy",
+                path: "/trophy",
+                params: result
+              });
+            } else {
+              this.$store.commit("isError");
+            }
           } else {
             this.$store.commit("isError");
           }
