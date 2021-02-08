@@ -11,7 +11,8 @@
 - [x] Trophy
 - [x] Test Unity
 
-🏆 Aplicação [Demo](https://trophy-front.herokuapp.com/)
+
+### 🏆 Aplicação [Demo](https://trophy-front.herokuapp.com/)
 
    ![APP](https://github.com/i-zzaa/trophy-front/blob/main/src/assets/trophy.gif)
 
