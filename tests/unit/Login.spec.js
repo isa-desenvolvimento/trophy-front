@@ -30,7 +30,10 @@ describe("Login", () => {
       mounted: jest.fn(),
       data: jest.fn(() => {
         return { user: { email: "", password: "" } };
-      })
+      }),
+      mocks: {
+        $t: msg => msg
+      }
     });
 
     const button = wrapper.find("button");
@@ -52,7 +55,10 @@ describe("Login", () => {
       attachTo: document.body,
       data: jest.fn(() => {
         return { user: { email: "", password: "" } };
-      })
+      }),
+      mocks: {
+        $t: msg => msg
+      }
     });
     const inputEmail = wrapper.find("#inp-login-email");
     const inputPassword = wrapper.find("#inp-login-password");
@@ -72,7 +78,10 @@ describe("Login", () => {
       attachTo: document.body,
       data: jest.fn(() => {
         return { user: { email: "", password: "" } };
-      })
+      }),
+      mocks: {
+        $t: msg => msg
+      }
     });
 
     const form = wrapper.find("form");

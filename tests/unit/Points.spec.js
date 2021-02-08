@@ -7,7 +7,10 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 describe("Points", () => {
   it("should render the componenet Points", () => {
     const wrapper = shallowMount(Points, {
-      localVue
+      localVue,
+      mocks: {
+        $t: msg => msg
+      }
     });
 
     expect(wrapper.find("#points-coins").exists()).toBeTruthy();
