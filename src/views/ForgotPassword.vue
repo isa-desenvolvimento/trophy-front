@@ -5,10 +5,10 @@
         @submit.prevent="forgetPassword"
         class="sign-up forgot-password neon-container"
       >
-        <h3 id="title-forgot-password">Forgot Password</h3>
+        <h3 id="title-forgot-password">{{ $t("FORGOT_PASSWORD") }}</h3>
 
         <div class="form-group">
-          <label>Email</label>
+          <label>{{ $t("EMAIL") }}</label>
           <input
             id="inp-forgetPassword-email"
             v-model="user.email"
@@ -17,7 +17,7 @@
         </div>
 
         <button type="submit" class="btn btn-success btn-lg btn-block">
-          Reset password
+          {{ $t("RESET_PASSWORD") }}
         </button>
       </form>
     </card>

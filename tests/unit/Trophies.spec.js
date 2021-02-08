@@ -21,7 +21,10 @@ describe("Trophies", () => {
         levels: [BRONZE, SILVER, DIAMOND],
         colors: [BRONZE_COLOR, SILVER_COLOR, DIAMOND_COLOR]
       },
-      localVue
+      localVue,
+      mocks: {
+        $t: msg => msg
+      }
     });
 
     expect(wrapper.props().categories).toEqual(["Moedas", "Matou", "Morreu"]);

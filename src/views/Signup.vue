@@ -2,10 +2,10 @@
   <div class="container-2">
     <card>
       <form @submit.prevent="userRegistration" class="sign-up neon-container">
-        <h3 id="title-sign-up">Sign Up</h3>
+        <h3 id="title-sign-up">{{ $t("SIGNUP") }}</h3>
 
         <div class="form-group">
-          <label>Name</label>
+          <label>{{ $t("NAME") }}</label>
           <input
             id="inp-signup-name"
             type="text"
@@ -15,7 +15,7 @@
         </div>
 
         <div class="form-group">
-          <label>Email</label>
+          <label>{{ $t("EMAIL") }}</label>
           <input
             id="inp-signup-email"
             type="email"
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-group">
-          <label>Password</label>
+          <label>{{ $t("PASSWORD") }}</label>
           <input
             id="inp-signup-password"
             type="password"
@@ -35,12 +35,12 @@
         </div>
 
         <button type="submit" class="btn btn-success btn-sm btn-block">
-          Sign Up
+          {{ $t("SIGNUP") }}
         </button>
 
         <p class="forgot-password text-right">
-          Already registered
-          <router-link :to="{ name: 'login' }">sign in?</router-link>
+          {{ $t("ALREADY_REGISTERED") }}
+          <router-link :to="{ name: 'login' }">{{ $t("SIGNIN") }}</router-link>
         </p>
       </form>
     </card>
@@ -51,7 +51,8 @@
 import Card from "@/components/Card.vue";
 import { generateNeon } from "@/util/neon";
 import request from "@/service/request";
-import { isEmpty } from "@/util/util";
+import { _isEmpty } from "@/util/util";
+import { signIn } from "@/service/auth";
 
 export default {
   components: { Card },
@@ -69,17 +70,26 @@ export default {
   },
   methods: {
     async userRegistration() {
-      if (!isEmpty(this.user)) {
+      if (!_isEmpty(this.user)) {
         try {
-          const result = await request("post", "/signup", this.user);
+          console.log(this.user);
+          const result = await request("post", "/signup", { user: this.user });
 
           if (result) {
-            this.$router.push("/login");
-            this.$store.commit("isSuccess");
-            // setTimeout(() => {
-            //   document.getElementById("app").classList.toggle("body-singin");
-            //   document.getElementById("app").classList.toggle("body-singup");
-            // }, 3000);
+            const result = await signIn({ user: this.user });
+            if (result.jti) {
+              localStorage.setItem("user", JSON.stringify(result));
+              this.$store.commit("isLoged");
+              this.$store.commit("isSuccess");
+
+              this.$router.replace({
+                name: "trophy",
+                path: "/trophy",
+                params: result
+              });
+            } else {
+              this.$store.commit("isError");
+            }
           } else {
             this.$store.commit("isError");
           }

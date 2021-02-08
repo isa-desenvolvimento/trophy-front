@@ -33,7 +33,10 @@ describe("Signup", () => {
       attachTo: document.body,
       data: jest.fn(() => {
         return { username: "" };
-      })
+      }),
+      mocks: {
+        $t: msg => msg
+      }
     });
 
     wrapper.vm.userRegistration(() => jest.fn());
@@ -60,7 +63,10 @@ describe("Signup", () => {
       data: jest.fn(() => {
         return { user: { name: "" } };
       }),
-      userRegistration: jest.fn()
+      userRegistration: jest.fn(),
+      mocks: {
+        $t: msg => msg
+      }
     });
     const inputEmail = wrapper.find("#inp-signup-email");
     const inputPassword = wrapper.find("#inp-signup-password");
@@ -84,7 +90,10 @@ describe("Signup", () => {
       data: jest.fn(() => {
         return { user: { name: "" } };
       }),
-      userRegistration: jest.fn()
+      userRegistration: jest.fn(),
+      mocks: {
+        $t: msg => msg
+      }
     });
     const form = wrapper.find("form");
     const button = wrapper.find("button");

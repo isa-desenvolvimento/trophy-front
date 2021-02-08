@@ -8,7 +8,7 @@
         <h3 id="title-username">{{ username }}</h3>
         <trophies
           id="trophies"
-          :categories="['Moedas', 'Matou', 'Morreu']"
+          :categories="['COINS', 'KILLED', 'DIED']"
           :levels="levels"
           :colors="colors"
         />
@@ -56,7 +56,7 @@ export default {
     return {
       username: user.name || "Mario",
       userId: user.id,
-      levels: ["Noob", "Noob", "Noob"],
+      levels: ["NOOB", "NOOB", "NOOB"],
       colors: [INITIAL_COLOR, INITIAL_COLOR, INITIAL_COLOR],
       ranking: {
         sum_coins: "⎻",

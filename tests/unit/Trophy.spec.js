@@ -19,7 +19,10 @@ describe("Trophy", () => {
     const wrapper = shallowMount(Trophy, {
       localVue,
       router,
-      attachTo: document.body
+      attachTo: document.body,
+      mocks: {
+        $t: msg => msg
+      }
     });
 
     const trophies = wrapper.find("#trophies");
