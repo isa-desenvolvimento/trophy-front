@@ -2,10 +2,10 @@
   <div class="container-2">
     <card>
       <form @submit.prevent="userRegistration" class="sign-up neon-container">
-        <h3 id="title-sign-up">Sign Up</h3>
+        <h3 id="title-sign-up">{{ $t("SIGNUP") }}</h3>
 
         <div class="form-group">
-          <label>Name</label>
+          <label>{{ $t("NAME") }}</label>
           <input
             id="inp-signup-name"
             type="text"
@@ -15,7 +15,7 @@
         </div>
 
         <div class="form-group">
-          <label>Email</label>
+          <label>{{ $t("EMAIL") }}</label>
           <input
             id="inp-signup-email"
             type="email"
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-group">
-          <label>Password</label>
+          <label>{{ $t("PASSWORD") }}</label>
           <input
             id="inp-signup-password"
             type="password"
@@ -35,12 +35,12 @@
         </div>
 
         <button type="submit" class="btn btn-success btn-sm btn-block">
-          Sign Up
+          {{ $t("SIGNUP") }}
         </button>
 
         <p class="forgot-password text-right">
-          Already registered
-          <router-link :to="{ name: 'login' }">sign in?</router-link>
+          {{ $t("ALREADY_REGISTERED") }}
+          <router-link :to="{ name: 'login' }">{{ $t("SIGNIN") }}</router-link>
         </p>
       </form>
     </card>

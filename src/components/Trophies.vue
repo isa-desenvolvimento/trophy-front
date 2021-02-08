@@ -12,12 +12,12 @@
         :key="index"
         :style="{ color: colors[index] }"
       >
-        {{ level }}
+        {{ $t(level) }}
       </div>
     </div>
     <div class="row">
       <div class="col-4" v-for="(category, index) in categories" :key="index">
-        {{ category }}
+        {{ $t(category.toUpperCase()) }}
       </div>
     </div>
   </div>

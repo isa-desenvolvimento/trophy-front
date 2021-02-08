@@ -18,6 +18,7 @@ import firebase from "firebase/app";
 import router from "./router";
 import FlowForm from "@ditdot-dev/vue-flow-form";
 import VueResource from "vue-resource";
+import { i18n } from "./i18n";
 
 import "@/assets/css/main.scss";
 
@@ -54,6 +55,7 @@ new Vue({
   IconsPlugin,
   FlowForm,
   axios,
+  i18n,
   VueAxios,
   render: h => h(App)
 }).$mount("#app");

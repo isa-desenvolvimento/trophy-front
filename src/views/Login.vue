@@ -2,10 +2,10 @@
   <div class="container-2">
     <card>
       <form @submit.prevent="userLogin" class="sign-up neon-container">
-        <h3 id="title-sign-in">Sign In</h3>
+        <h3 id="title-sign-in">{{ $t("SIGNIN_TITLE") }}</h3>
 
         <div class="form-group">
-          <label>Email address</label>
+          <label>{{ $t("EMAIL") }}</label>
           <input
             id="inp-login-email"
             type="email"
@@ -15,7 +15,7 @@
         </div>
 
         <div class="form-group">
-          <label>Password</label>
+          <label>{{ $t("PASSWORD") }}</label>
           <input
             id="inp-login-password"
             type="password"
@@ -25,11 +25,13 @@
         </div>
 
         <button type="submit" class="btn btn-success btn-lg btn-block">
-          Sign In
+          {{ $t("SIGNIN") }}
         </button>
 
         <p class="forgot-password text-right mt-2 mb-4">
-          <router-link to="/forgot-password">Forgot password ?</router-link>
+          <router-link to="/forgot-password">{{
+            $t("FORGOT_PASSWORD")
+          }}</router-link>
         </p>
       </form>
     </card>
