@@ -12,7 +12,3 @@ export const signIn = async user => {
 export const signOut = () => {
   localStorage.clear();
 };
-
-export const isSignedIn = () => {
-  return localStorage.getItem("token");
-};
