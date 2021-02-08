@@ -16,7 +16,7 @@
 
 ### 🏆 Aplicação [Demo](https://trophy-front.herokuapp.com/)
 
-   ![APP](https://github.com/isa-desenvolvimento/trophy-front/blob/master/src/assets/trophy.gif)
+   ![APP](https://github.com/isa-desenvolvimento/trophy-front/blob/master/src/assets/trophy-3.gif)
 
 ### Pré-requisitos
 
