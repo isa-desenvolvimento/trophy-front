@@ -15,7 +15,7 @@ export const signOut = () => {
 
 export const isSignedIn = async () => {
   try {
-    const token = localStorage.getItem("token") || null;
+    const token = (await localStorage.getItem("token")) || null;
 
     if (!token)
       // Se não existe o token no LocalStorage
