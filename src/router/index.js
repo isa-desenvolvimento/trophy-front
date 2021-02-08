@@ -29,8 +29,8 @@ const routes = [
     path: "/trophy",
     name: "trophy",
     component: Trophy,
-    beforeEnter(_, __, next) {
-      // Impede usuários não assinados
+    params: true,
+    beforeEnter(to, from, next) {
       if (isSignedIn()) {
         // de acessar a página Home.
         next();

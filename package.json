@@ -1,5 +1,5 @@
 {
-  "name": "trophy-front-2",
+  "name": "trophy-front",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit --watchAll",
     "lint": "vue-cli-service lint",
-    "commit": "git_cz",
+    "commit": "git_cz && vue-cli-service test:unit",
     "format": "prettier --write .",
     "start": "node server.js",
     "clean": "rm -rf node_modules && rm -rf yarn.lock && yarn install",
@@ -23,6 +23,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "@websanova/vue-auth": "^4.1.1",
+    "animate.css": "^4.1.1",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
@@ -40,6 +41,7 @@
     "vue-axios": "^3.2.4",
     "vue-icon": "^2.1.2",
     "vue-jest": "^3.0.7",
+    "vue-resource": "^1.5.1",
     "vue-route": "^1.5.1",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2"
@@ -61,6 +63,7 @@
     "flush-promises": "^1.0.2",
     "husky": "^4.3.8",
     "jest-fetch-mock": "^3.0.3",
+    "jest-localstorage-mock": "^2.4.6",
     "node-sass": "^5.0.0",
     "prettier": "^1.19.1",
     "sass-loader": "^10.1.1",

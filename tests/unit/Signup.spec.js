@@ -1,36 +1,43 @@
 import { mount, createLocalVue } from "@vue/test-utils";
 import Signup from "@/views/Signup.vue";
-import * as firebase from "firebase";
 import VueRouter from "vue-router";
+import Vuex from "vuex";
 
 const localVue = createLocalVue();
+localVue.use(Vuex);
 localVue.use(VueRouter);
 const router = new VueRouter({
   routes: [{ name: "login", path: "login", component: jest.fn() }]
 });
 
-const onAuthStateChanged = jest.fn();
-const createUserWithEmailAndPassword = jest.fn(() => Promise.resolve());
-
-window.alert = jest.fn();
-
-jest.spyOn(firebase, "auth").mockImplementation(() => {
-  return {
-    onAuthStateChanged,
-    createUserWithEmailAndPassword
-  };
-});
-
 describe("Signup", () => {
+  let store;
+  beforeEach(() => {
+    store = new Vuex.Store({
+      state: {
+        isError: false,
+        isSuccess: false
+      },
+      mutations: {
+        isSuccess: jest.fn(),
+        isError: jest.fn()
+      }
+    });
+  });
+
   it("should render the componenet Signup", () => {
     const wrapper = mount(Signup, {
       localVue,
       router,
+      store,
       attachTo: document.body,
       data: jest.fn(() => {
         return { username: "" };
       })
     });
+
+    wrapper.vm.userRegistration(() => jest.fn());
+
     const button = wrapper.find("button");
     const inputEmail = wrapper.find("#inp-signup-email");
     const inputPassword = wrapper.find("#inp-signup-password");
@@ -48,6 +55,7 @@ describe("Signup", () => {
     const wrapper = mount(Signup, {
       localVue,
       router,
+      store,
       attachTo: document.body,
       data: jest.fn(() => {
         return { user: { name: "" } };
@@ -71,6 +79,7 @@ describe("Signup", () => {
     const wrapper = mount(Signup, {
       localVue,
       router,
+      store,
       attachTo: document.body,
       data: jest.fn(() => {
         return { user: { name: "" } };

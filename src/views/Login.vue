@@ -20,7 +20,7 @@
             id="inp-login-password"
             type="password"
             class="form-control form-control-md input"
-            v-model="user.pass"
+            v-model="user.password"
           />
         </div>
 
@@ -40,27 +40,38 @@
 import { signIn } from "@/service/auth";
 import Card from "@/components/Card.vue";
 import { generateNeon } from "@/util/neon";
+import { signOut } from "@/service/auth";
 
 export default {
   components: { Card },
   mounted() {
     generateNeon("title-sign-in");
+    signOut();
+    this.$store.commit("isLoged", false);
   },
   data() {
     return {
       user: {
         email: "",
-        pass: ""
+        password: ""
       }
     };
   },
   methods: {
     async userLogin() {
-      const result = await signIn(this.user);
-      if (result) {
-        this.$router.push("/trophy", result.data);
+      const result = await signIn({ user: this.user });
+      if (result.jti) {
+        localStorage.setItem("user", JSON.stringify(result));
+        this.$store.commit("isLoged");
+        this.$store.commit("isSuccess");
+
+        this.$router.replace({
+          name: "trophy",
+          path: "/trophy",
+          params: result
+        });
       } else {
-        alert("error.message");
+        this.$store.commit("isError");
       }
     }
   }
