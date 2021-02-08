@@ -38,6 +38,10 @@ const routes = [
       }
       next("/login");
     }
+  },
+  {
+    path: "*",
+    redirect: "/"
   }
 ];
 
