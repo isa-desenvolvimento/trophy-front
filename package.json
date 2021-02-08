@@ -9,7 +9,7 @@
     "lint": "vue-cli-service lint",
     "commit": "git_cz && vue-cli-service test:unit",
     "format": "prettier --write .",
-    "start": "node server.js",
+    "start": "vue-cli-service build && node server.js",
     "clean": "rm -rf node_modules && rm -rf yarn.lock && yarn install",
     "postinstall": "if test \"$NODE_ENV\" = \"production\" ; then yarn run build ; fi "
   },
