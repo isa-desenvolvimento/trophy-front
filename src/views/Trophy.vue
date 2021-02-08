@@ -69,11 +69,9 @@ export default {
     this.$store.commit("isLoged");
     generateNeon("title-username");
     try {
-      const result = await request("get", `/trophy/1/rank`);
+      const result = await request("get", `/trophy/${this.userId}/rank`);
       if (result.data) {
         const { data } = result.data;
-        console.log(data);
-
         const sum = Object.values(data.sum_kill_by_monster).reduce(
           (total, killed) => total + killed
         );
@@ -86,7 +84,7 @@ export default {
 
         this.levels = [
           data.rank_coins,
-          data.rank_kill_monster_1,
+          data.rank_kill_monster_1 || data.rank_kill_monster_2,
           data.rank_deaths
         ];
 
