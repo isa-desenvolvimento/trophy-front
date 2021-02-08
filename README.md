@@ -13,9 +13,7 @@
 
 🏆 Aplicação [Demo](https://trophy-front.herokuapp.com/)
 
-<h4 align="center"> 
-   ![Alt Text](https://github.com/i-zzaa/trophy-front/blob/main/src/assets/trophy.gif)
-</h4>
+   ![APP](https://github.com/i-zzaa/trophy-front/blob/main/src/assets/trophy.gif)
 
 ### Pré-requisitos
 
@@ -38,6 +36,9 @@ $ yarn install
 
 # Execute a aplicação em modo de desenvolvimento
 $ yarn serve
+
+# Execute os testes
+$ yarn test:unit
 
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 ```
