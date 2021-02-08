@@ -29,12 +29,20 @@ const routes = [
     name: "trophy",
     component: Trophy,
     params: true,
-    meta: { requiresAuth: true }
+    beforeEnter(to, from, next) {
+      const tk = localStorage.getItem("token");
+      let requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+      if (requiresAuth && !tk) {
+        next("/login");
+      }
+      next();
+    }
+  },
+  {
+    path: "*",
+    redirect: "/"
   }
-  // {
-  //   path: "*",
-  //   redirect: "/"
-  // }
 ];
 
 const router = new VueRouter({
@@ -43,12 +51,12 @@ const router = new VueRouter({
   routes
 });
 
-router.beforeEach((to, from, next) => {
-  const tk = localStorage.getItem("token");
-  let requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+// router.beforeEach((to, from, next) => {
+//   const tk = localStorage.getItem("token");
+//   let requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
-  if (requiresAuth && !tk) next("/login");
-  else next();
-});
+//   if (requiresAuth && !tk) next("/login");
+//   else next();
+// });
 
 export default router;
