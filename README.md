@@ -1,7 +1,9 @@
 <h1 align="center">
    🏆 Trophy Front
 </h1>
-<p align="center">🚀 Sistema para troféus de um jogo </p>
+<p align="center">🚀 Sistema para troféus de um jogo desenvolvido com a linguagem vuejs na versão 2. A arquitetura utilizada 
+   é baseada em componentes Web.
+</p>
 
 ### Features
 
