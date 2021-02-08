@@ -69,17 +69,21 @@ export default {
   },
   methods: {
     async userRegistration() {
-      if (isEmpty(this.user)) {
-        const result = await request("post", "/signup", this.user);
+      if (!isEmpty(this.user)) {
+        try {
+          const result = await request("post", "/signup", this.user);
 
-        if (result) {
-          this.$router.push("/login");
-          this.$store.commit("isSuccess");
-          // setTimeout(() => {
-          //   document.getElementById("app").classList.toggle("body-singin");
-          //   document.getElementById("app").classList.toggle("body-singup");
-          // }, 3000);
-        } else {
+          if (result) {
+            this.$router.push("/login");
+            this.$store.commit("isSuccess");
+            // setTimeout(() => {
+            //   document.getElementById("app").classList.toggle("body-singin");
+            //   document.getElementById("app").classList.toggle("body-singup");
+            // }, 3000);
+          } else {
+            this.$store.commit("isError");
+          }
+        } catch (error) {
           this.$store.commit("isError");
         }
       } else {
