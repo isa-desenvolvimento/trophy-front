@@ -14,5 +14,5 @@ export const signOut = () => {
 };
 
 export const isSignedIn = () => {
-  return localStorage.getItem("token") || false;
+  return localStorage.getItem("token");
 };
