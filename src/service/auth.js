@@ -13,7 +13,7 @@ export const signOut = () => {
   localStorage.removeItem("token");
 };
 
-export function isSignedIn() {
+export const isSignedIn = async () => {
   try {
     const token = localStorage.getItem("token") || null;
 
@@ -37,4 +37,4 @@ export function isSignedIn() {
   } catch (error) {
     console.warn(error);
   }
-}
+};
