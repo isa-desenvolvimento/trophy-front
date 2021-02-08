@@ -1,5 +1,5 @@
-//const baseURL = "https://trophy-api.herokuapp.com";
-const baseURL = process.env.API;
+const baseURL = "https://trophy-api.herokuapp.com";
+//const baseURL = process.env.API;
 import axios from "axios";
 
 function getHeaders() {
