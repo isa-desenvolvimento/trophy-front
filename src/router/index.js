@@ -30,11 +30,11 @@ const routes = [
     component: Trophy,
     params: true,
     meta: { requiresAuth: true }
-  },
-  {
-    path: "*",
-    redirect: "/"
   }
+  // {
+  //   path: "*",
+  //   redirect: "/"
+  // }
 ];
 
 const router = new VueRouter({
