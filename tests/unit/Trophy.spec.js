@@ -2,9 +2,12 @@ import { shallowMount, createLocalVue } from "@vue/test-utils";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import Trophy from "@/views/Trophy.vue";
 import VueRouter from "vue-router";
+import Vuex from "vuex";
 
 const localVue = createLocalVue();
 localVue.use(VueRouter);
+localVue.use(Vuex);
+
 const router = new VueRouter();
 router.push({
   path: "/trophy",
@@ -15,10 +18,22 @@ router.push({
 localVue.component("font-awesome-icon", FontAwesomeIcon);
 
 describe("Trophy", () => {
+  let store;
+  beforeEach(() => {
+    store = new Vuex.Store({
+      state: {
+        loggedIn: false
+      },
+      mutations: {
+        isLoged: jest.fn()
+      }
+    });
+  });
   it("should render the componenet Trophy", () => {
     const wrapper = shallowMount(Trophy, {
       localVue,
       router,
+      store,
       attachTo: document.body,
       mocks: {
         $t: msg => msg
