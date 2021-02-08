@@ -5,7 +5,6 @@ import Trophy from "@/views/Trophy.vue";
 import Signup from "@/views/Signup.vue";
 import Login from "@/views/Login.vue";
 import ForgotPassword from "@/views/ForgotPassword.vue";
-import { isSignedIn } from "@/service/auth";
 
 Vue.use(VueRouter);
 
@@ -30,14 +29,11 @@ const routes = [
     name: "trophy",
     component: Trophy,
     params: true,
-    beforeEnter(to, from, next) {
-      if (isSignedIn()) {
-        // de acessar a página Home.
-        next();
-        return;
-      }
-      next("/login");
-    }
+    meta: { requiresAuth: true }
+  },
+  {
+    path: "*",
+    redirect: "/"
   }
 ];
 
@@ -45,6 +41,14 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.API,
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  const tk = localStorage.getItem("token");
+  let requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+  if (requiresAuth && !tk) next("/login");
+  else next();
 });
 
 export default router;

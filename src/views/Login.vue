@@ -64,7 +64,6 @@ export default {
       const result = await signIn({ user: this.user });
       if (result.jti) {
         localStorage.setItem("user", JSON.stringify(result));
-        this.$store.commit("isLoged");
         this.$store.commit("isSuccess");
 
         this.$router.replace({
