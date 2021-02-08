@@ -30,18 +30,9 @@ const routes = [
     name: "trophy",
     component: Trophy,
     params: true,
-    beforeEnter(to, from, next) {
-      if (isSignedIn()) {
-        // de acessar a página Home.
-        next();
-        return;
-      }
-      next("/login");
+    meta: {
+      requiresAuth: true
     }
-  },
-  {
-    path: "*",
-    redirect: "/"
   }
 ];
 
@@ -49,6 +40,22 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.API,
   routes
+});
+
+// router.beforeEach((to, from, next) => {
+//   if (!isSignedIn()) {
+//     next({
+//       path: "/login",
+//       query: { redirect: to.fullPath }
+//     });
+//   } else {
+//     next();
+//   }
+// });
+
+router.beforeEach((to, from, next) => {
+  if (!isSignedIn()) next({ path: "/login", query: { redirect: to.fullPath } });
+  else next();
 });
 
 export default router;

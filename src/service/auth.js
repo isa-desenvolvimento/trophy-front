@@ -10,9 +10,9 @@ export const signIn = async user => {
 };
 
 export const signOut = () => {
-  localStorage.removeItem("token");
+  localStorage.clear();
 };
 
-export const isSignedIn = async () => {
-  return (await localStorage.getItem("token")) || false;
+export const isSignedIn = () => {
+  return localStorage.getItem("token") || false;
 };
