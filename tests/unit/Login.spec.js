@@ -1,21 +1,38 @@
 import { mount, createLocalVue } from "@vue/test-utils";
 import Login from "@/views/Login.vue";
 import VueRouter from "vue-router";
+import Vuex from "vuex";
 
 const localVue = createLocalVue();
+localVue.use(Vuex);
 localVue.use(VueRouter);
 const router = new VueRouter();
 
 describe("Login", () => {
+  let store;
+  beforeEach(() => {
+    store = new Vuex.Store({
+      state: {
+        loggedIn: false
+      },
+      mutations: {
+        isLoged: jest.fn()
+      }
+    });
+  });
+
   it("should render the componenet Login", () => {
     const wrapper = mount(Login, {
       localVue,
       router,
+      store,
       attachTo: document.body,
+      mounted: jest.fn(),
       data: jest.fn(() => {
         return { user: { email: "", password: "" } };
       })
     });
+
     const button = wrapper.find("button");
     const inputEmail = wrapper.find("#inp-login-email");
     const inputPassword = wrapper.find("#inp-login-password");
@@ -31,6 +48,7 @@ describe("Login", () => {
     const wrapper = mount(Login, {
       localVue,
       router,
+      store,
       attachTo: document.body,
       data: jest.fn(() => {
         return { user: { email: "", password: "" } };
@@ -50,11 +68,13 @@ describe("Login", () => {
     const wrapper = mount(Login, {
       localVue,
       router,
+      store,
       attachTo: document.body,
       data: jest.fn(() => {
         return { user: { email: "", password: "" } };
       })
     });
+
     const form = wrapper.find("form");
     const inputEmail = wrapper.find("#inp-login-email");
     const inputPassword = wrapper.find("#inp-login-password");

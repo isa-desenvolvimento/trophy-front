@@ -1,8 +1,6 @@
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
 import Trophy from "@/views/Trophy.vue";
-
 import VueRouter from "vue-router";
 
 const localVue = createLocalVue();
@@ -20,13 +18,14 @@ describe("Trophy", () => {
   it("should render the componenet Trophy", () => {
     const wrapper = shallowMount(Trophy, {
       localVue,
-      router
+      router,
+      attachTo: document.body
     });
 
     const trophies = wrapper.find("#trophies");
     const avatar = wrapper.find("#avatar");
     const points = wrapper.find("#points");
-    const nameUser = wrapper.find("#name-user");
+    const nameUser = wrapper.find("#title-username");
 
     expect(nameUser.exists()).toBeTruthy();
     expect(nameUser.text()).toEqual("teste");
