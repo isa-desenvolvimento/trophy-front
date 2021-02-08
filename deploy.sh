@@ -9,6 +9,9 @@ yarn test:unit
 # build
 yarn run build
 
+# build
+yarn start
+
 # navigate into the build output directory
 cd dist
 
