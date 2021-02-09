@@ -34,6 +34,7 @@ Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.use(VueResource);
 
 Vue.config.productionTip = false;
+//Vue.http.options.root = process.env.API;
 
 new Vue({
   router,
