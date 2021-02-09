@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import firebase from "firebase";
 import Card from "@/components/Card.vue";
 import { generateNeon } from "@/util/neon";
 
@@ -43,18 +42,7 @@ export default {
   },
   methods: {
     forgetPassword() {
-      firebase
-        .auth()
-        .sendPasswordResetEmail(this.user.email)
-        .then(() => {
-          alert("Check your registered email to reset the password!");
-          this.user = {
-            email: ""
-          };
-        })
-        .catch(error => {
-          alert(error);
-        });
+      this.$store.commit("isError");
     }
   }
 };

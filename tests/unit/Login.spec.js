@@ -7,20 +7,15 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 localVue.use(VueRouter);
 const router = new VueRouter();
-
+const store = new Vuex.Store({
+  state: {
+    loggedIn: false
+  },
+  mutations: {
+    isLoged: jest.fn()
+  }
+});
 describe("Login", () => {
-  let store;
-  beforeEach(() => {
-    store = new Vuex.Store({
-      state: {
-        loggedIn: false
-      },
-      mutations: {
-        isLoged: jest.fn()
-      }
-    });
-  });
-
   it("should render the componenet Login", () => {
     const wrapper = mount(Login, {
       localVue,
