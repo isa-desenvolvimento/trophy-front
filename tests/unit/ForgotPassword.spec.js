@@ -1,22 +1,24 @@
-import { shallowMount } from "@vue/test-utils";
+import { shallowMount, createLocalVue } from "@vue/test-utils";
 import ForgotPassword from "@/views/ForgotPassword.vue";
-import * as firebase from "firebase";
+import Vuex from "vuex";
 
-const onAuthStateChanged = jest.fn();
-const sendPasswordResetEmail = jest.fn(() => Promise.resolve());
-
-window.alert = jest.fn();
-jest.spyOn(firebase, "auth").mockImplementation(() => {
-  return {
-    onAuthStateChanged,
-    sendPasswordResetEmail
-  };
+const localVue = createLocalVue();
+localVue.use(Vuex);
+const store = new Vuex.Store({
+  state: {
+    isError: false
+  },
+  mutations: {
+    isError: jest.fn()
+  }
 });
 
 describe("ForgotPassword", () => {
   it("should render the componenet ForgotPassword", () => {
     const wrapper = shallowMount(ForgotPassword, {
       attachTo: document.body,
+      localVue,
+      store,
       mocks: {
         $t: msg => msg
       }
@@ -34,6 +36,8 @@ describe("ForgotPassword", () => {
 
   it("should verify content input of form", async () => {
     const wrapper = shallowMount(ForgotPassword, {
+      localVue,
+      store,
       attachTo: document.body,
       mocks: {
         $t: msg => msg
@@ -47,6 +51,8 @@ describe("ForgotPassword", () => {
 
   it("should verify submit form", async () => {
     const wrapper = shallowMount(ForgotPassword, {
+      localVue,
+      store,
       attachTo: document.body,
       mocks: {
         $t: msg => msg

@@ -72,7 +72,6 @@ export default {
     async userRegistration() {
       if (!_isEmpty(this.user)) {
         try {
-          console.log(this.user);
           const result = await request("post", "/signup", { user: this.user });
 
           if (result) {
