@@ -1,11 +1,11 @@
 {
-  "name": "trophy-front",
+  "name": "trophy-front-2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --port 3001",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "test:unit": "vue-cli-service test:unit --watchAll",
     "lint": "vue-cli-service lint",
     "commit": "git_cz && vue-cli-service test:unit",
     "format": "prettier --write .",
